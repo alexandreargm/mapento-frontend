@@ -1,3 +1,6 @@
+import path from 'path'
+import fs from 'fs'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -40,5 +43,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  server: {
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2-key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2.pem'))
+    }
   }
 }
