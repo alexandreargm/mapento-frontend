@@ -20,6 +20,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~assets/css/global.css',
     '~assets/css/tailwind.css'
   ],
 
