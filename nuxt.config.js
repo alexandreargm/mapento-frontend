@@ -51,6 +51,7 @@ export default {
     https: {
       key: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2-key.pem')),
       cert: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2.pem'))
-    }
+    },
+    host: '0.0.0.0' // Allows to connect to the web server
   }
 }
