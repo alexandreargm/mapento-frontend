@@ -26,6 +26,9 @@ module.exports = {
         '5xl': '64rem',
         '6xl': '72rem',
       },
+      fontSize: {
+        '2xs': '0.5625rem' // 9px
+      }
     },
   },
   variants: {},
