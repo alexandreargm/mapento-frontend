@@ -1,5 +1,5 @@
 <template>
-  <div class="page-home">
+  <main class="page-home">
     <section class="featured-posts">
       <div class="featured-posts__inner">
         <article class="featured-posts__post post">
@@ -7,7 +7,7 @@
         </article>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>

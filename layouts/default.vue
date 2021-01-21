@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Navbar />
-    <Nuxt />
+  <div class="layout__inner flex flex-col xs:flex-row h-full">
+    <Nuxt class="flex-grow" />
+    <Navbar class="sticky bottom-0" />
   </div>
 </template>
 

@@ -6,7 +6,7 @@ svg {
 /*
   Use full page height
 */
-html, body, #__nuxt, #__layout, .layout__inner {
+html, body, #__nuxt, #__layout {
   height: 100%;
 }
 

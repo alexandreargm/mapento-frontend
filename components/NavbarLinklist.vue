@@ -1,6 +1,6 @@
 <template>
-  <div class="navbar__linklist linklist">
-    <div class="linklist__inner">
+  <div class="navbar__linklist linklist xs:min-w-2xs">
+    <div class="linklist__inner flex xs:flex-col">
       <NavbarLink
         v-for="link in navbarLinks"
         :key="link.id"
@@ -18,23 +18,27 @@ export default {
         {
           title: 'Home',
           to: '/',
-          icon: 'github'
+          icon: 'outline/home'
         },
         {
           title: 'Search',
-          to: '/search'
+          to: '/search',
+          icon: 'outline/search'
         },
         {
           title: 'Agenda',
-          to: '/agenda'
+          to: '/agenda',
+          icon: 'outline/calendar'
         },
         {
           title: 'Notifications',
-          to: '/notifications'
+          to: '/notifications',
+          icon: 'outline/bell'
         },
         {
           title: 'Account',
-          to: '/account'
+          to: '/account',
+          icon: 'outline/user'
         }
       ]
     }

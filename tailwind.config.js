@@ -5,6 +5,10 @@ module.exports = {
   },
   purge: [],
   theme: {
+    screens: {
+      '2xs': '23.4375rem', // 375px
+      xs: '30rem', // 480px
+    },
     extend: {
       minWidth: {
         none: 'none',
