@@ -1,7 +1,7 @@
 <template>
-  <nuxt-link class="navbar__link link flex flex-col items-center xs:inline-flex p-1" :to="to">
+  <nuxt-link class="navbar__link link flex flex-col flex-1 items-center justify-center xs:inline-flex h-12" :to="to">
     <svg-icon v-if="icon" class="link__icon" :name="icon" />
-    <div class="link__title text-xs">
+    <div class="link__title text-2xs font-semibold">
       {{ title }}
     </div>
   </nuxt-link>

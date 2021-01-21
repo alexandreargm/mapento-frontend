@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar__linklist linklist xs:min-w-2xs">
+  <div class="navbar__linklist linklist xs:min-w-2xs border-t border-b-medium">
     <div class="linklist__inner flex xs:flex-col">
       <NavbarLink
         v-for="link in navbarLinks"
@@ -28,7 +28,7 @@ export default {
         {
           title: 'Agenda',
           to: '/agenda',
-          icon: 'outline/calendar'
+          icon: 'outline/bookmark'
         },
         {
           title: 'Notifications',
