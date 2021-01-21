@@ -9,6 +9,11 @@ module.exports = {
       '2xs': '23.4375rem', // 375px
       xs: '30rem', // 480px
     },
+    backgroundColor: theme => ({
+      'light': '#ffffff',
+      'dark': '#E9EAEC',
+      'medium': '#DCDCDC'
+    }),
     extend: {
       minWidth: {
         none: 'none',
@@ -28,6 +33,12 @@ module.exports = {
       },
       fontSize: {
         '2xs': '0.5625rem' // 9px
+      },
+      textColor: {
+        'light': '#333333',
+        'light-secondary': '#7e7e7e',
+        'dark': '#333333',
+        'dark-secondary': '#777D88',
       }
     },
   },
