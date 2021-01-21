@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @import 'typography.css';
+}
+
 @layer utilities {
   .svg-16 {
     width: 16px;
