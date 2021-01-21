@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .svg-16 {
+    width: 16px;
+    height: 16px;
+  }
+  .svg-20 {
+    width: 20px;
+    height: 20px;
+  }
+  .svg-28 {
+    width: 28px;
+    height: 28px;
+  }
+  .svg-32 {
+    width: 32px;
+    height: 32px;
+  }
+  .svg-36 {
+    width: 36px;
+    height: 36px;
+  }
+}
