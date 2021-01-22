@@ -1,6 +1,6 @@
 <template>
-  <div class="navbar__linklist linklist xs:min-w-2xs border-t border-b-medium">
-    <div class="linklist__inner flex xs:flex-col">
+  <div class="navbar__linklist linklist">
+    <div class="linklist__inner flex xs:flex-col xs:space-y-2">
       <NavbarLink
         v-for="link in navbarLinks"
         :key="link.id"
@@ -37,7 +37,7 @@ export default {
         },
         {
           title: 'Account',
-          to: '/account',
+          to: '#',
           icon: 'outline/user'
         }
       ]

@@ -1,8 +1,10 @@
 <template>
-  <nuxt-link class="navbar__link link flex flex-col flex-1 items-center justify-center xs:inline-flex h-12" :to="to">
-    <svg-icon v-if="icon" class="link__icon" :name="icon" />
-    <div class="link__title text-2xs font-semibold">
-      {{ title }}
+  <nuxt-link class="navbar__link link flex flex-1" :to="to">
+    <div class="link__inner h-12 flex flex-col flex-grow sm:flex-row items-center justify-center text-t-light-secondary hover:text-t-light xs:flex-row xs:justify-start sm:p-3">
+      <svg-icon v-if="icon" class="link__icon svg-28" :name="icon" />
+      <div class="link__title text-2xs font-semibold tracking-tight xs:hidden sm:block  xs:text-lg xs:ml-4">
+        {{ title }}
+      </div>
     </div>
   </nuxt-link>
 </template>
@@ -28,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+.nuxt-link-exact-active {
+  @apply text-t-light;
+}
 </style>
