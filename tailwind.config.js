@@ -7,7 +7,11 @@ module.exports = {
   theme: {
     screens: {
       '2xs': '23.4375rem', // 375px
-      xs: '30rem', // 480px
+      'xs': '30rem', // 480px
+      'sm': '48rem', // 768px
+      'md': '62rem', // 992px
+      'lg': '80rem', // 1280px
+      'xl': '100rem', // 1600px
     },
     colors: {
       'b-light': '#ffffff',
