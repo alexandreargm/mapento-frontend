@@ -5,6 +5,11 @@ module.exports = {
   },
   purge: [],
   theme: {
+    fontFamily: {
+      'sans': ['Montserrat', 'system-ui'],
+      //'serif': ['ui-serif', 'Georgia'],
+      //'mono': ['ui-monospace', 'SFMono-Regular'],
+    },
     screens: {
       '2xs': '23.4375rem', // 375px
       'xs': '30rem', // 480px
@@ -21,12 +26,12 @@ module.exports = {
       't-light-secondary': '#7e7e7e',
       't-dark': '#333333',
       't-dark-secondary': '#777D88',
-
+      'brand': '#3B7AF7',
     },
-    fontFamily: {
-      'sans': ['Montserrat', 'system-ui'],
-      //'serif': ['ui-serif', 'Georgia'],
-      //'mono': ['ui-monospace', 'SFMono-Regular'],
+    flexGrow: {
+      '0': 0,
+      '1': 1,
+      '2': 2,
     },
     extend: {
       minWidth: {
@@ -44,6 +49,13 @@ module.exports = {
         '4xl': '56rem',
         '5xl': '64rem',
         '6xl': '72rem',
+      },
+      maxWidth: {
+        '4xs': '8rem',
+        '3xs': '12rem',
+        '2xs': '16rem',
+        'tablet': '37.5rem', // 600px
+        'laptop': '62rem' // 992px
       },
       fontSize: {
         '4xs': '0.5625rem', // 9px
