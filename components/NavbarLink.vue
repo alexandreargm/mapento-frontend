@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link class="navbar__link link flex flex-1" :to="to">
-    <div class="link__inner h-12 flex flex-col flex-grow sm:flex-row items-center justify-center text-t-light-secondary hover:text-t-light xs:flex-row xs:justify-start sm:p-3">
-      <svg-icon v-if="icon" class="link__icon svg-28" :name="icon" />
-      <div class="link__title text-2xs font-semibold tracking-tight xs:hidden sm:block  xs:text-lg xs:ml-4">
+  <nuxt-link class="link flex-1 text-t-light hover:text-brand xs:hover:bg-b-dark text-2xs font-semibold rounded-md" :to="to">
+    <div class="link__inner flex h-12 flex-col xs:flex-row xs:px-4 items-center justify-center xs:justify-start">
+      <svg-icon v-if="icon" class="link__icon xs:svg-28 stroke-1" :name="icon" />
+      <div class="link__title tracking-tight xs:hidden lg:block lg:text-lg lg:ml-4 lg:text-dark">
         {{ title }}
       </div>
     </div>
@@ -31,6 +31,6 @@ export default {
 
 <style>
 .nuxt-link-exact-active {
-  @apply text-t-light;
+  @apply text-brand;
 }
 </style>
