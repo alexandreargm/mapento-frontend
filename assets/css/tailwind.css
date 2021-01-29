@@ -3,6 +3,10 @@
 
 @layer base {
   @import 'typography.css';
+
+  button:focus {
+    outline: none;
+  }
 }
 
 @layer utilities {
