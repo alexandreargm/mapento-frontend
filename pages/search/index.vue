@@ -1,5 +1,5 @@
 <template>
-  <main class="page-search" />
+  <DefaultPage class="page-search" />
 </template>
 
 <script>

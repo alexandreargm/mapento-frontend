@@ -1,5 +1,5 @@
 <template>
-  <DefaultPage class="page-profile" />
+  <div class="separator w-full border-t border-b-medium" />
 </template>
 
 <script>

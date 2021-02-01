@@ -1,5 +1,5 @@
 <template>
-  <main class="page-notifications" />
+  <DefaultPage class="page-notifications" />
 </template>
 
 <script>

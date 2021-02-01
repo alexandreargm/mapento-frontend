@@ -1,5 +1,7 @@
 <template>
-  <DefaultPage class="page-profile" />
+  <div class="nav-item__section">
+    <slot />
+  </div>
 </template>
 
 <script>

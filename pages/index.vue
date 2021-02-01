@@ -1,5 +1,5 @@
 <template>
-  <main class="page-home">
+  <DefaultPage class="page-home">
     <section class="featured-posts">
       <div class="featured-posts__inner">
         <article class="featured-posts__post post">
@@ -7,7 +7,7 @@
         </article>
       </div>
     </section>
-  </main>
+  </DefaultPage>
 </template>
 
 <script>

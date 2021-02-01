@@ -1,5 +1,5 @@
 <template>
-  <main class="page-agenda" />
+  <DefaultPage class="page-agenda" />
 </template>
 
 <script>
