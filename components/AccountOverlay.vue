@@ -34,7 +34,7 @@ export default {
   props: {
     isActive: {
       type: Boolean,
-      default: true
+      default: false
     }
   }
 }
