@@ -42,6 +42,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/svg-sprite',
+    '@nuxtjs/apollo',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -53,5 +54,12 @@ export default {
       cert: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2.pem'))
     },
     host: '0.0.0.0' // Allows to connect to the web server
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://api.mapento.local:8000',
+      }
+    }
   }
 }
