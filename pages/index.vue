@@ -1,6 +1,6 @@
 <template>
   <DefaultPage class="page-home">
-    <ProximosEventos />
+    Hola mundo
   </DefaultPage>
 </template>
 
