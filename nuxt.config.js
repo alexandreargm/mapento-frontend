@@ -42,7 +42,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/svg-sprite',
-    '@nuxtjs/apollo',
+    '@nuxtjs/apollo'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -58,7 +58,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://api.mapento.local:8000',
+        httpEndpoint: 'https://api.mapento.local:8000'
       }
     }
   }
