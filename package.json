@@ -14,7 +14,7 @@
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/svg-sprite": "^0.5.2",
     "core-js": "^3.8.2",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.15.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
