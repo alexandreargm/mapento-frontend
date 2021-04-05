@@ -1,5 +1,5 @@
 <template>
-  <DefaultOverlay v-show="isActive" class="flex justify-end xs:justify-start bg-black bg-opacity-25">
+  <DefaultOverlay v-show="isAccountMenuOpen" class="flex justify-end xs:justify-start bg-black bg-opacity-25">
     <div class="account-sidebar overflow-y-auto h-full bg-b-light px-2 w-72 flex flex-col">
       <ProfilePreview class="account-sidebar__profile-preview px-4 py-4" />
       <nav class="account-sidebar__nav select-none flex flex-col space-y-2 py-4">
@@ -30,11 +30,20 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 export default {
-  props: {
-    isActive: {
-      type: Boolean,
-      default: false
+  data () {
+    return {
+      isAccountMenuOpen: false
+    }
+  },
+  apollo: {
+    isAccountMenuOpen: {
+      query: gql`
+        query isAccountMenuOpen {
+          isAccountMenuOpen @client
+        }
+      `
     }
   }
 }

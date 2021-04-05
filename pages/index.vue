@@ -1,11 +1,10 @@
 <template>
   <DefaultPage class="page-home">
-    Hola mundo
+    <ProximosEventos />
   </DefaultPage>
 </template>
 
 <script>
-export default {}
 </script>
 
 <style></style>

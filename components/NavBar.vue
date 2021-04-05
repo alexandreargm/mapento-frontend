@@ -7,11 +7,26 @@
       <NavTab title="Notifications" to="/notifications" icon="outline/bell" />
       <NavTab title="Account" to="#account" icon="outline/user" />
     </div>
+    <button @click="handleToggleAccountMenu">
+      Press me
+    </button>
   </nav>
 </template>
 
 <script>
+import gql from 'graphql-tag'
 export default {
+  methods: {
+    handleToggleAccountMenu () {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation toggleAccountMenu {
+            toggleAccountMenu @client
+          }
+        `
+      })
+    }
+  }
 }
 </script>
 

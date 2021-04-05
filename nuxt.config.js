@@ -1,6 +1,3 @@
-import path from 'path'
-import fs from 'fs'
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -28,6 +25,10 @@ export default {
   plugins: [
   ],
 
+  router: {
+    middleware: 'auth'
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -42,24 +43,24 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/svg-sprite',
+    // https://github.com/nuxt-community/apollo-module
     '@nuxtjs/apollo'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  server: {
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2-key.pem')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'dev-certs/mapento.local+2.pem'))
-    },
-    host: '0.0.0.0' // Allows to connect to the web server
-  },
   apollo: {
     clientConfigs: {
-      default: {
-        httpEndpoint: 'https://api.mapento.local:8000'
-      }
+      default: '~/modules/apollo-nuxt/apollo-config.js'
+    }
+  },
+  // Allows hot-reloading when running inside a docker container.
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
+      ignored: /node_modules/
     }
   }
 }

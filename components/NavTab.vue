@@ -11,7 +11,6 @@
 
 <script>
 export default {
-  name: 'NavbarLinks',
   props: {
     title: {
       type: String,

@@ -8,11 +8,11 @@
     </nuxt-link>
     <div class="profile-preview__body py-4 space-y-4">
       <div class="profile-preview__details">
-        <div class="profile-preview__name text-xl">
-          {{ name }}
+        <div v-if="login" class="profile-preview__name text-xl">
+          {{ login.user.name }}
         </div>
-        <div class="profile-preview__id text text-t-light-secondary font-normal">
-          {{ account }}
+        <div v-if="login" class="profile-preview__id text text-t-light-secondary font-normal">
+          {{ login.user.email }}
         </div>
       </div>
       <div class="profile-preview__footer text-sm">
@@ -25,13 +25,21 @@
 </template>
 
 <script>
+import { LoginQuery } from '~/graphql/user/queries'
 export default {
   data () {
     return {
+      login: null,
       photoUrl: 'https://picsum.photos/96',
       name: 'Jesús García',
       account: '@JesusG',
       eventsOnCourse: 2
+    }
+  },
+  apollo: {
+    login: {
+      query: LoginQuery,
+      update: data => data.login
     }
   }
 }

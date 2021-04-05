@@ -1,21 +1,26 @@
 <template>
-  <div class="proximos-eventos" />
+  <div class="proximos-eventos">
+    <div
+      v-for="event in events.data"
+      :key="event.id"
+      class="event"
+    >
+      {{ event.title }}
+    </div>
+  </div>
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import { EventsQuery } from '~/graphql/event/queries'
 
 export default {
+  data () {
+    return {
+      events: []
+    }
+  },
   apollo: {
-    events: gql`
-      query {
-        events
-        {
-          id
-          title
-        }
-      }
-    `
+    events: EventsQuery
   }
 }
 </script>
