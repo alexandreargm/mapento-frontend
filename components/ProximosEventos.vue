@@ -20,7 +20,12 @@ export default {
     }
   },
   apollo: {
-    events: EventsQuery
+    events: {
+      query: EventsQuery,
+      variables: {
+        id: 1
+      }
+    }
   }
 }
 </script>

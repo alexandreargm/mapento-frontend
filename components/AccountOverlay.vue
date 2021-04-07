@@ -21,7 +21,7 @@
           Terms and privacy
         </NavItem>
         <HSeparator />
-        <NavItem tag="button" to="/logoff" class="account-sidebar__item">
+        <NavItem tag="button" to="/login" class="account-sidebar__item">
           Log off
         </NavItem>
       </nav>

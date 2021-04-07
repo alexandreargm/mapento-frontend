@@ -49,7 +49,6 @@
 
 <script>
 import { LoginMutation, LogoutMutation } from '~/graphql/user/mutations.js'
-import { LoginQuery } from '~/graphql/user/queries.js'
 export default {
   data () {
     return {
@@ -60,11 +59,6 @@ export default {
         email: '',
         password: ''
       }
-    }
-  },
-  apollo: {
-    login: {
-      query: LoginQuery
     }
   },
   mounted () {
@@ -90,8 +84,7 @@ export default {
         await this.$apolloHelpers.onLogin(res.access_token)
           .then(() => {
             const maxAge = 60 * 60 * 24 * 7
-            // eslint-disable-next-line quotes
-            document.cookie = `__mapento_user_id=${res.user.id};SameSite=strict;max-age=${maxAge}`
+            this.$cookies.set('__mapento_user_id', res.user.id, { maxAge, sameSite: 'strict' })
           })
         this.isAuthenticated = true
         this.$router.push('/')
@@ -102,11 +95,12 @@ export default {
     },
     async onLogout () {
       // Revoke auth token
-      await this.$apollo.mutate({ mutation: LogoutMutation })
+      this.$apollo.mutate({ mutation: LogoutMutation })
+
+      // Remove auth cookies
+      await this.$apolloHelpers.onLogout()
         .then(() => {
-          // Remove auth cookies
-          this.$apolloHelpers.onLogout()
-          document.cookie = '__mapento_user_id=;max-age=0'
+          this.$cookies.remove('__mapento_user_id')
           this.isAuthenticated = false
         })
     }

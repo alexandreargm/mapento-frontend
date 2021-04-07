@@ -15,6 +15,28 @@ export const resolvers = {
       }
       cache.writeData({ data })
       return null
+    },
+    setLocalProfile: (parent, { id }, { cache }) => {
+      const { user } = cache.readQuery({
+        query: gql`
+          query getLocalProfile {
+            user (id: $id) @client {
+              id
+              name
+              email
+            }
+          }
+        `,
+        variables: {
+          id
+        }
+      })
+      // const data = {
+      //   profile: user
+      // }
+      console.log('LocalResolver', user)
+      cache.writeData({ data: { profile: user } })
+      // return data
     }
   }
 }
