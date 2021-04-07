@@ -18,3 +18,11 @@ export const LoginMutation = gql`
     }
   }
 `
+export const LogoutMutation = gql`
+  mutation LogoutMutation {
+    logout {
+      status
+      message
+    }
+  }
+`
