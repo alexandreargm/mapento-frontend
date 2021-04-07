@@ -26,7 +26,10 @@ export default {
   ],
 
   router: {
-    middleware: 'auth'
+    middleware: [
+      'auth',
+      'profile'
+    ]
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,7 +47,9 @@ export default {
   modules: [
     '@nuxtjs/svg-sprite',
     // https://github.com/nuxt-community/apollo-module
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
+    'cookie-universal-nuxt'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
