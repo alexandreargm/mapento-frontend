@@ -7,12 +7,12 @@
       </div>
     </nuxt-link>
     <div class="profile-preview__body py-4 space-y-4">
-      <div class="profile-preview__details">
-        <div v-if="profile" class="profile-preview__name text-xl">
-          {{ profile.name }}
+      <div v-if="user" class="profile-preview__details">
+        <div class="profile-preview__name text-xl">
+          {{ user.name }}
         </div>
-        <div v-if="profile" class="profile-preview__id text text-t-light-secondary font-normal">
-          {{ profile.email }}
+        <div class="profile-preview__id text text-t-light-secondary font-normal">
+          {{ user.email }}
         </div>
       </div>
       <div class="profile-preview__footer text-sm">
@@ -25,20 +25,28 @@
 </template>
 
 <script>
-import { ProfileQuery } from '~/graphql/user/queries'
+import { UserQuery } from '~/graphql/user/queries'
 export default {
   data () {
     return {
-      profile: null,
+      user: null,
       photoUrl: 'https://picsum.photos/96',
-      name: 'Jesús García',
-      account: '@JesusG',
       eventsOnCourse: 2
     }
   },
+  computed: {
+    getUserId () {
+      return this.$cookies.get('__mapento_user_id')
+    }
+  },
   apollo: {
-    profile: {
-      query: ProfileQuery
+    user: {
+      query: UserQuery,
+      variables () {
+        return {
+          id: this.getUserId
+        }
+      }
     }
   }
 }
