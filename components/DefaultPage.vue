@@ -1,12 +1,9 @@
 <template>
-  <div class="container relative">
-    <main id="main" class="page" role="main">
+  <div>
+    <main id="main" role="main">
       <slot />
     </main>
-    <aside id="sidebar">
-      <slot name="sidebar" />
-    </aside>
-    <AccountOverlay />
+    <slot name="sidebar" />
     <slot name="overlay" />
   </div>
 </template>

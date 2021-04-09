@@ -50,6 +50,7 @@
 <script>
 import { LoginMutation, LogoutMutation } from '~/graphql/user/mutations.js'
 export default {
+  layout: 'login',
   data () {
     return {
       isAuthenticated: false,

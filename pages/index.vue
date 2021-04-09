@@ -1,5 +1,5 @@
 <template>
-  <DefaultPage class="page-home">
+  <DefaultPage class="bg-b-dark">
     <ProximosEventos />
   </DefaultPage>
 </template>
