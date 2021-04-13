@@ -3,6 +3,10 @@ svg {
   height: 24px;
 }
 
+button:focus {
+  outline: none;
+}
+
 /*
   Use full page height
 */
