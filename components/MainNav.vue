@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar sticky bottom-0 flex border-t select-none border-b-medium xs:flex-col lg:min-w-2xs">
-    <div class="navbar__list flex flex-grow-1 xs:flex-grow-0 w-full xs:flex-col xs:py-2 xs:space-y-2">
+    <div class="navbar__list flex w-full xs:flex-col xs:py-2 xs:space-y-2">
       <NavItem to="/" icon="outline/home" class="navbar__item">
         Home
       </NavItem>
@@ -43,7 +43,9 @@ export default {
 }
 
 .navbar__item {
+  @apply flex-1;
   & .nav-item {
+    @apply flex-1;
       & .nav-item__title {
         @apply hidden tracking-tight font-semibold;
       }
@@ -52,7 +54,9 @@ export default {
 
 @screen xs {
   .navbar__item {
+    @apply flex-none;
     & .nav-item {
+      @apply flex-none;
       @apply px-4 justify-start;
     }
     & .nav-item__icon {
