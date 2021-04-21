@@ -67,5 +67,6 @@ export default {
       poll: 1000,
       ignored: /node_modules/
     }
-  }
+  },
+  ssr: false // Disable Server Side rendering
 }

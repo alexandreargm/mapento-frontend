@@ -7,15 +7,21 @@ export default async function ({ app }) {
   // Get user id
   const userId = app.$cookies.get('__mapento_user_id')
 
-  try {
-    // Query user
-    await apolloClient.query({
-      query: UserQuery,
-      variables: {
-        id: userId
-      }
-    })
-  } catch (e) {
-    console.error(e)
+  // Query user
+  if (userId) {
+    await queryUser(UserQuery, userId)
+  }
+
+  async function queryUser (UserQuery, userId) {
+    try {
+      await apolloClient.query({
+        query: UserQuery,
+        variables: {
+          id: userId
+        }
+      })
+    } catch (e) {
+      console.error(e)
+    }
   }
 }

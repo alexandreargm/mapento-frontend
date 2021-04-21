@@ -27,7 +27,8 @@ module.exports = {
       't-dark': '#333333',
       't-dark-secondary': '#777D88',
       brand: '#3B7AF7',
-      black: '#000000'
+      black: '#000000',
+      white: '#ffffff'
     },
     flexGrow: {
       0: 0,

@@ -1,7 +1,7 @@
 export const onCacheInit = (cache) => {
   const data = {
     isAccountMenuOpen: false,
-    profile: null
+    isAuthenticated: false
   }
   cache.writeData({ data })
 }

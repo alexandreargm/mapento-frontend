@@ -15,27 +15,13 @@ export const resolvers = {
       }
       cache.writeData({ data })
       return null
-    }//,
-    // setLocalProfile: (parent, { id }, { cache }) => {
-    //   const { user } = cache.readQuery({
-    //     query: gql`
-    //       query getLocalProfile {
-    //         user (id: $id) @client {
-    //           id
-    //           name
-    //           email
-    //         }
-    //       }
-    //     `,
-    //     variables: {
-    //       id
-    //     }
-    //   })
-    //   const data = {
-    //     profile: user
-    //   }
-    //   cache.writeData({ data })
-    //   // return data
-    // }
+    },
+    setIsAuthenticated: (parent, { value }, { cache }) => {
+      const data = {
+        isAuthenticated: value
+      }
+      cache.writeData({ data })
+      return null
+    }
   }
 }

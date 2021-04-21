@@ -35,7 +35,8 @@ export const typeDefs = gql`
   }
 
   type Query {
-    isAccountMenuOpen: Boolean!
     user (id: ID!): User!
+    isAccountMenuOpen: Boolean!
+    isAuthenticated: Boolean!
   }
 `

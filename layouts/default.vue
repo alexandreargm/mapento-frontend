@@ -9,6 +9,15 @@
 </template>
 
 <script>
+// import { setIsAuthenticatedMutation } from '~/graphql/user/localMutations'
+export default {
+  // mounted () {
+  //   this.$apollo.mutate({
+  //     mutation: setIsAuthenticatedMutation,
+  //     variables: { value: true }
+  //   })
+  // }
+}
 </script>
 
 <style></style>

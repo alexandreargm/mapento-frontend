@@ -1,5 +1,42 @@
 @tailwind base;
+@tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1,h2,h3,h4,h5,h6,p,label,span {
+    @apply text-t-dark;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-full bg-brand h-12 text-white px-6 font-semibold select-none block;
+  }
+  .btn--secondary {
+    @apply bg-opacity-0 border-solid border-2 text-t-dark border-b-medium;
+  }
+  .btn--secondary * {
+    @apply text-t-dark;
+  }
+  .btn--simple {
+    @apply bg-opacity-0 text-brand;
+  }
+  .btn * {
+    @apply text-white;
+  }
+  .btn:disabled {
+    @apply bg-b-medium text-t-dark;
+  }
+  .btn:disabled * {
+    @apply text-t-dark;
+  }
+  .label {
+    @apply text-lg;
+  }
+  .input {
+    @apply bg-b-dark h-10 px-6 text-base w-full;
+  }
+}
 
 @layer utilities {
   @variants responsive {
