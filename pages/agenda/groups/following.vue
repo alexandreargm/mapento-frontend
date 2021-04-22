@@ -1,10 +1,12 @@
 <template>
-  <DefaultPage class="page-agenda" />
+  <div class="agenda-groups">
+    Groups followed
+  </div>
 </template>
 
 <script>
 export default {
-
+  layout: 'agenda'
 }
 </script>
 

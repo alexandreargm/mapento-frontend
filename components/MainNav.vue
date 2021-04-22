@@ -1,13 +1,13 @@
 <template>
   <nav class="navbar sticky bottom-0 flex border-t select-none border-b-medium xs:flex-col lg:min-w-2xs">
     <div class="navbar__list flex w-full xs:flex-col xs:py-2 xs:space-y-2">
-      <NavItem to="/" icon="outline/home" class="navbar__item">
+      <NavItem to="/" icon="outline/home" class="navbar__item" exact>
         Home
       </NavItem>
       <NavItem to="/search" icon="outline/search" class="navbar__item">
         Search
       </NavItem>
-      <NavItem to="/agenda" icon="outline/bookmark" class="navbar__item">
+      <NavItem to="/agenda/events/following" icon="outline/bookmark" class="navbar__item" :active="isActiveLink('agenda')">
         Agenda
       </NavItem>
       <NavItem to="/notifications" icon="outline/bell" class="navbar__item">
@@ -22,7 +22,9 @@
 
 <script>
 import gql from 'graphql-tag'
+import { isActiveLink } from '~/mixins/ui-mixins'
 export default {
+  mixins: [isActiveLink],
   methods: {
     handleToggleAccountMenu () {
       this.$apollo.mutate({
@@ -38,9 +40,6 @@ export default {
 </script>
 
 <style lang="postcss">
-.nuxt-link-exact-active {
-  @apply text-brand;
-}
 
 .navbar__item {
   @apply flex-1;
