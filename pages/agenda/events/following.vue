@@ -1,6 +1,8 @@
 <template>
   <div class="agenda-events">
-    Followed events
+    <section class="agenda-events__events px-4">
+      <EventCard />
+    </section>
   </div>
 </template>
 
