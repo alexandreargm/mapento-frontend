@@ -6,7 +6,7 @@ module.exports = {
   purge: [],
   theme: {
     fontFamily: {
-      sans: ['Montserrat', 'system-ui']
+      sans: ['Montserrat', 'Verdana', 'Roboto', 'system-ui']
       // 'serif': ['ui-serif', 'Georgia'],
       // 'mono': ['ui-monospace', 'SFMono-Regular'],
     },
