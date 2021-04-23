@@ -8,12 +8,10 @@
         {{ title }}
       </div>
     </div>
-    <div class="event-card__footer flex">
-      <div class="event-card__user-avatar-wrapper w-12">
-        <img :src="user.avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
-      </div>
+    <div class="event-card__footer flex space-x-4">
+      <img :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
       <div class="event-card__details text-t-light-secondary text-xs flex items-center ">
-        {{ user.name }} · {{ date }} {{ city }} · {{ participants }} participants
+        {{ author }} · {{ date }} {{ city }} · {{ participants }} participants
       </div>
     </div>
   </article>
@@ -21,17 +19,29 @@
 
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      default: 'Missing title'
+    },
+    city: {
+      type: String,
+      default: 'Missing city'
+    },
+    date: {
+      type: String,
+      default: 'Missing date'
+    },
+    author: {
+      type: String,
+      default: 'Missing author'
+    }
+  },
   data () {
     return {
       category: 'Ocio',
-      title: 'Tarde de rol de mesa en tienda de comics Megaland',
-      date: 'Vier. 21 feb.',
-      city: 'Torrevieja',
       participants: 16,
-      user: {
-        name: 'Luis Fontsera',
-        avatar: 'https://picsum.photos/32'
-      }
+      avatar: 'https://picsum.photos/32'
     }
   }
 }
