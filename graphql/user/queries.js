@@ -51,3 +51,28 @@ export const UserEventOwnerQuery = gql`
     }
   }
 `
+export const UserGroupsQuery = gql`
+  query UserGroupsQuery {
+    me {
+      id
+      groups {
+        id
+        name
+        city
+      }
+    }
+  }
+`
+
+export const UserGroupOwnerQuery = gql`
+  query UserGroupOwnerQuery {
+    me {
+      id
+      group_owner {
+        id
+        name
+        city
+      }
+    }
+  }
+`

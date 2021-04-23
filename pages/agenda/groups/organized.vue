@@ -1,12 +1,32 @@
 <template>
-  <div class="agenda-groups">
-    Organized groups
-  </div>
+  <FeedList :items="groups" class="agenda-groups-organized">
+    <GroupCard
+      v-for="group in groups"
+      :key="group.id"
+      :name="group.name"
+      :city="group.city"
+    />
+    <template #empty class="agenda-events__empty">
+      No groups created yet
+    </template>
+  </FeedList>
 </template>
 
 <script>
+import { UserGroupOwnerQuery } from '~/graphql/user/queries'
 export default {
-  layout: 'agenda'
+  layout: 'agenda',
+  data () {
+    return {
+      groups: null
+    }
+  },
+  apollo: {
+    groups: {
+      query: UserGroupOwnerQuery,
+      update: data => data.me.group_owner
+    }
+  }
 }
 </script>
 

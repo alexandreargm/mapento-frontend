@@ -1,16 +1,17 @@
 <template>
-  <div class="agenda-events-following">
-    <section class="agenda-events__events p-4 space-y-2">
-      <EventCard
-        v-for="event in events"
-        :key="event.id"
-        :title="event.title"
-        :date="event.date"
-        :author="event.event_owner.name"
-        :city="event.city"
-      />
-    </section>
-  </div>
+  <FeedList :items="events" class="agenda-events-following">
+    <EventCard
+      v-for="event in events"
+      :key="event.id"
+      :title="event.title"
+      :date="event.date"
+      :author="event.event_owner.name"
+      :city="event.city"
+    />
+    <template #empty class="agenda-events__empty">
+      You are not following any event
+    </template>
+  </FeedList>
 </template>
 
 <script>
@@ -25,7 +26,7 @@ export default {
   apollo: {
     events: {
       query: UserEventsQuery,
-      update: data => data.me.events
+      update: data => data.me?.events
     }
   }
 }

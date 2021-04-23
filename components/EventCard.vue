@@ -8,9 +8,9 @@
         {{ title }}
       </div>
     </div>
-    <div class="event-card__footer flex space-x-4">
+    <div class="event-card__footer flex space-x-4 items-center">
       <img :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
-      <div class="event-card__details text-t-light-secondary text-xs flex items-center ">
+      <div class="event-card__details text-t-light-secondary text-xs">
         {{ author }} · {{ date }} {{ city }} · {{ participants }} participants
       </div>
     </div>

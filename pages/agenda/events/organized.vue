@@ -1,16 +1,17 @@
 <template>
-  <div class="agenda-events-organized">
-    <section class="agenda-events__events p-4 space-y-2">
-      <EventCard
-        v-for="event in events"
-        :key="event.id"
-        :title="event.title"
-        :date="event.date"
-        :author="'You'"
-        :city="event.city"
-      />
-    </section>
-  </div>
+  <FeedList :items="events" class="agenda-events-organized">
+    <EventCard
+      v-for="event in events"
+      :key="event.id"
+      :title="event.title"
+      :date="event.date"
+      :author="'You'"
+      :city="event.city"
+    />
+    <template #empty class="agenda-events__empty">
+      No events created yet
+    </template>
+  </FeedList>
 </template>
 
 <script>
