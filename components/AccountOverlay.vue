@@ -10,10 +10,10 @@
           New group
         </NavItem>
         <HSeparator />
-        <NavItem to="/events" class="account-overlay__item">
+        <NavItem to="/agenda/events/organized" class="account-overlay__item">
           Your events
         </NavItem>
-        <NavItem to="/groups" class="account-overlay__item">
+        <NavItem to="/agenda/groups/organized" class="account-overlay__item">
           Your groups
         </NavItem>
         <HSeparator />
