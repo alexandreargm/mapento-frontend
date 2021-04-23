@@ -21,18 +21,14 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import { toggleAccountMenuMutation } from '~/graphql/ui/localMutations'
 import { isActiveLink } from '~/mixins/ui-mixins'
 export default {
   mixins: [isActiveLink],
   methods: {
     handleToggleAccountMenu () {
       this.$apollo.mutate({
-        mutation: gql`
-          mutation toggleAccountMenu {
-            toggleAccountMenu @client
-          }
-        `
+        mutation: toggleAccountMenuMutation
       })
     }
   }
