@@ -38,5 +38,6 @@ export const typeDefs = gql`
     user (id: ID!): User!
     isAccountMenuOpen: Boolean!
     isAuthenticated: Boolean!
+    me: User
   }
 `

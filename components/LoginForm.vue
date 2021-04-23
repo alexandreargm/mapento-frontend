@@ -74,10 +74,6 @@ export default {
           }
         }).then(({ data: { login } }) => login)
         await this.$apolloHelpers.onLogin(res.access_token)
-          .then(() => {
-            const maxAge = 60 * 60 * 24 * 7
-            this.$cookies.set('__mapento_user_id', res.user.id, { maxAge, sameSite: 'strict' })
-          })
         this.$router.push('/')
       } catch (e) {
         this.submitting = false

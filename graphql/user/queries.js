@@ -9,3 +9,12 @@ export const UserQuery = gql`
     }
   }
 `
+export const MeQuery = gql`
+  query MeQuery {
+    me {
+      id
+      name
+      email
+    }
+  }
+`

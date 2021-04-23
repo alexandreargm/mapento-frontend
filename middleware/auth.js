@@ -4,7 +4,7 @@ export default function ({ app, route, redirect }) {
   const hasToken = !!app.$apolloHelpers.getToken()
   const apolloClient = app.apolloProvider.defaultClient
   const allowedUrls = ['/login', '/register', '/password']
-  const cookiesToRemove = ['__mapento_user_id']
+  const cookiesToRemove = []
 
   // Handle unauthenticated users
   if (!hasToken && !isAllowedRoute(route, allowedUrls)) {
