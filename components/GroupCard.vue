@@ -27,11 +27,11 @@ export default {
     city: {
       type: String,
       default: 'Missing city'
-    }//,
-    // image: {
-    //   type: String,
-    //   default: 'Missing author'
-    // },
+    },
+    image: {
+      type: String,
+      default: 'Missing author'
+    }
     // members: {
     //   type: Number,
     //   default: 0
@@ -39,7 +39,6 @@ export default {
   },
   data () {
     return {
-      image: 'https://picsum.photos/160',
       members: 12
     }
   }

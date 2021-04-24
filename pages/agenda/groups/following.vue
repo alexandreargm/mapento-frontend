@@ -5,6 +5,7 @@
       :key="group.id"
       :name="group.name"
       :city="group.city"
+      :image="group.image"
     />
     <template #empty class="agenda-events__empty">
       You are not following any group

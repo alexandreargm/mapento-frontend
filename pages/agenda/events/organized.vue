@@ -9,7 +9,7 @@
       :avatar="avatar"
       :city="event.city"
     />
-    <template #empty class="agenda-events__empty">
+    <template #empty class="agenda-events-organized__empty">
       No events created yet
     </template>
   </FeedList>

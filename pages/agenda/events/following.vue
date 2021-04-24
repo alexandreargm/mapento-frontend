@@ -9,7 +9,7 @@
       :avatar="event.event_owner.avatar"
       :city="event.city"
     />
-    <template #empty class="agenda-events__empty">
+    <template #empty class="agenda-events-following__empty">
       You are not following any event
     </template>
   </FeedList>
@@ -27,7 +27,7 @@ export default {
   apollo: {
     events: {
       query: UserEventsQuery,
-      update: data => data.me?.events
+      update: data => data.me.events
     }
   }
 }
