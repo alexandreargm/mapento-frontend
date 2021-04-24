@@ -28,8 +28,7 @@ export default {
 
   router: {
     middleware: [
-      'auth',
-      'profile'
+      'auth'
     ]
   },
 

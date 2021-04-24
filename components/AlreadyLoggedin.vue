@@ -1,5 +1,5 @@
 <template>
-  <div class="already-loggedin flex flex-wrap space-y-4">
+  <div class="already-loggedin space-y-4">
     <span class="already-loggedin__title text-2xl">You are logged in!</span>
     <button type="button" class="already-loggedin__go-main login-form__go-home btn px-12" @click="redirect">
       Go to main page
