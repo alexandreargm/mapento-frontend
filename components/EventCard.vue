@@ -1,17 +1,22 @@
 <template>
-  <article class="event-card bg-white rounded-md p-4 space-y-4">
-    <div class="event-card__body">
-      <div class="event-card__category text-xs mb-1">
+  <article class="event-card bg-white rounded-md p-4">
+    <div class="event-card__head flex items-center space-x-4 mb-1">
+      <div class="event-card__category text-xs">
         {{ category }}
       </div>
+      <div v-if="isprivate" class="event-card__private text-xs px-1 bg-b-dark font-semibold rounded-md">
+        Private
+      </div>
+    </div>
+    <div class="event-card__body mb-2">
       <div class="event-card__title font-semibold">
         {{ title }}
       </div>
     </div>
     <div class="event-card__footer flex space-x-4 items-center">
-      <img :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
+      <img v-if="avatar" :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
       <div class="event-card__details text-t-light-secondary text-xs">
-        {{ author }} · {{ date }} {{ city }} · {{ participants }} participants
+        {{ authorComputed }} {{ date }}, {{ city }} · {{ participants }} participants
       </div>
     </div>
   </article>
@@ -22,29 +27,41 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Missing title'
+      default: ''
     },
     city: {
       type: String,
-      default: 'Missing city'
+      default: ''
     },
     date: {
       type: String,
-      default: 'Missing date'
+      default: ''
     },
     author: {
       type: String,
-      default: 'Missing author'
+      default: ''
     },
     avatar: {
       type: String,
       default: ''
+    },
+    category: {
+      type: String,
+      default: ''
+    },
+    isprivate: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      category: 'Ocio',
       participants: 16
+    }
+  },
+  computed: {
+    authorComputed () {
+      return this.author ? `${this.author} ·` : ''
     }
   }
 }

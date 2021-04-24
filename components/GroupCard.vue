@@ -3,15 +3,24 @@
     <div class="group-card__image flex-shrink-0">
       <img :src="image" alt="" class="group-card__image bg-brand h-40 w-40">
     </div>
-    <div class="group-card__body  flex flex-col p-4 xs:pl-6">
-      <div class="group-card__title font-semibold text-t-dark overflow-ellipsis overflow-hidden">
-        {{ name }}
+    <div class="group-card__content p-4 xs:pl-6">
+      <div class="group-card__head flex mb-1 space-x-4">
+        <div class="group-card__category text-xs">
+          {{ category }}
+        </div>
+        <div v-if="isprivate" class="group-car__private px-1 bg-b-dark text-xs font-semibold rounded-md">
+          Private
+        </div>
       </div>
-      <div class="group-card__city text-t-dark-secondary">
-        {{ city }}
+      <div class="group-card__body mb-1">
+        <div class="group-card__title font-semibold text-t-dark overflow-ellipsis overflow-hidden">
+          {{ name }}
+        </div>
       </div>
-      <div class="group-card__member-count text-t-dark-secondary text-xs mt-2">
-        {{ members }} members
+      <div class="group-card__footer">
+        <span class="group-card__city text-t-dark-secondary text-xs">
+          {{ city }}
+        </span>
       </div>
     </div>
   </article>
@@ -31,15 +40,14 @@ export default {
     image: {
       type: String,
       default: 'Missing author'
-    }
-    // members: {
-    //   type: Number,
-    //   default: 0
-    // }
-  },
-  data () {
-    return {
-      members: 12
+    },
+    isprivate: {
+      type: Boolean,
+      default: false
+    },
+    category: {
+      type: String,
+      default: ''
     }
   }
 }
