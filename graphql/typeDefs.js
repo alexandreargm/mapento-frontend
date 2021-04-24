@@ -5,6 +5,7 @@ export const typeDefs = gql`
     id: ID!
     name: String!
     email: String!
+    avatar: String!
     event_owner: [Event!]! @hasMany(relation: "eventOwner")
     events: [Event!]! @belongsToMany
     created_at: DateTime!
