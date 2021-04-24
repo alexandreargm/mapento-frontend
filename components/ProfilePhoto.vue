@@ -7,7 +7,7 @@ export default {
   props: {
     src: {
       type: String,
-      default: 'https://picsum.photos/64'
+      default: ''
     }
   }
 }

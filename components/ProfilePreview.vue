@@ -1,7 +1,7 @@
 <template>
   <div class="profile-preview">
     <nuxt-link to="/profile" class="provile-preview__header select-none flex flex-row justify-between py-4">
-      <ProfilePhoto :src="photoUrl" class="profile-preview__photo w-24 h-24" />
+      <ProfilePhoto :src="me.avatar" class="profile-preview__photo w-24 h-24" />
       <div class="profile-preview__profile-link text-brand">
         See profile
       </div>

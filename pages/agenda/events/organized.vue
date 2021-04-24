@@ -6,6 +6,7 @@
       :title="event.title"
       :date="event.date"
       :author="'You'"
+      :avatar="avatar"
       :city="event.city"
     />
     <template #empty class="agenda-events__empty">

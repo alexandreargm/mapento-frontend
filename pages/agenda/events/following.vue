@@ -6,6 +6,7 @@
       :title="event.title"
       :date="event.date"
       :author="event.event_owner.name"
+      :avatar="event.event_owner.avatar"
       :city="event.city"
     />
     <template #empty class="agenda-events__empty">

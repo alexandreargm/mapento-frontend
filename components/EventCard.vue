@@ -35,13 +35,16 @@ export default {
     author: {
       type: String,
       default: 'Missing author'
+    },
+    avatar: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
       category: 'Ocio',
-      participants: 16,
-      avatar: 'https://picsum.photos/32'
+      participants: 16
     }
   }
 }

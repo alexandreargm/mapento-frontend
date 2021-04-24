@@ -6,6 +6,7 @@ export const UserQuery = gql`
       id
       name
       email
+      avatar
     }
   }
 `
@@ -15,6 +16,7 @@ export const MeQuery = gql`
       id
       name
       email
+      avatar
     }
   }
 `
@@ -32,6 +34,7 @@ export const UserEventsQuery = gql`
           id
           name
           email
+          avatar
         }
       }
     }
@@ -42,6 +45,7 @@ export const UserEventOwnerQuery = gql`
   query UserEventOwnerQuery {
     me {
       id
+      avatar
       event_owner {
         id
         title
@@ -59,6 +63,7 @@ export const UserGroupsQuery = gql`
         id
         name
         city
+        image
       }
     }
   }
@@ -72,6 +77,7 @@ export const UserGroupOwnerQuery = gql`
         id
         name
         city
+        image
       }
     }
   }
