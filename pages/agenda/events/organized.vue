@@ -5,9 +5,9 @@
       :key="event.id"
       :title="event.title"
       :date="event.date"
-      :author="'You'"
-      :avatar="avatar"
       :city="event.city"
+      :category="event.category.name"
+      :private="event.private"
     />
     <template #empty class="agenda-events-organized__empty">
       No events created yet

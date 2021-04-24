@@ -8,6 +8,8 @@
       :author="event.event_owner.name"
       :avatar="event.event_owner.avatar"
       :city="event.city"
+      :category="event.category.name"
+      :isprivate="event.private"
     />
     <template #empty class="agenda-events-following__empty">
       You are not following any event

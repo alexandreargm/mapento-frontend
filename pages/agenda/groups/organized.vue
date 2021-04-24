@@ -6,6 +6,7 @@
       :name="group.name"
       :city="group.city"
       :image="group.image"
+      :category="group.category.name"
     />
     <template #empty class="agenda-events__empty">
       No groups created yet

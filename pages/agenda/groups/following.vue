@@ -6,6 +6,8 @@
       :name="group.name"
       :city="group.city"
       :image="group.image"
+      :isprivate="group.private"
+      :category="group.category.name"
     />
     <template #empty class="agenda-events__empty">
       You are not following any group

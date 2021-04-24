@@ -30,6 +30,11 @@ export const UserEventsQuery = gql`
         title
         date
         city
+        private
+        category {
+          id
+          name
+        }
         event_owner {
           id
           name
@@ -51,6 +56,11 @@ export const UserEventOwnerQuery = gql`
         title
         date
         city
+        private
+        category {
+          id
+          name
+        }
       }
     }
   }
@@ -64,6 +74,11 @@ export const UserGroupsQuery = gql`
         name
         city
         image
+        private
+        category {
+          id
+          name
+        }
       }
     }
   }
@@ -78,6 +93,11 @@ export const UserGroupOwnerQuery = gql`
         name
         city
         image
+        private
+        category {
+          id
+          name
+        }
       }
     }
   }
