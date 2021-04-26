@@ -1,6 +1,6 @@
 <template>
   <article class="event-card bg-white rounded-md p-4">
-    <div class="event-card__head flex items-center space-x-4 mb-1">
+    <div class="event-card__head flex items-center space-x-3 mb-1">
       <div class="event-card__category text-xs">
         {{ category }}
       </div>

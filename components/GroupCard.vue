@@ -4,12 +4,14 @@
       <img :src="image" alt="" class="group-card__image bg-brand h-40 w-40">
     </div>
     <div class="group-card__content p-4 xs:pl-6">
-      <div class="group-card__head flex mb-1 space-x-4">
-        <div class="group-card__category text-xs">
+      <div class="group-card__head flex flex-wrap mb-1">
+        <div class="group-card__category text-xs mr-3">
           {{ category }}
         </div>
-        <div v-if="isprivate" class="group-car__private px-1 bg-b-dark text-xs font-semibold rounded-md">
-          Private
+        <div v-if="isprivate" class="group-card__private flex">
+          <span class="group-card__private-title px-1 bg-b-dark text-xs font-semibold rounded-md">
+            Private
+          </span>
         </div>
       </div>
       <div class="group-card__body mb-1">
