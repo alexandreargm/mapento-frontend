@@ -1,6 +1,12 @@
 <template>
   <div class="nav-item__wrapper flex items-center">
-    <nuxt-link v-if="to" class="nav-item space-x-4 px-4 inline-flex items-center justify-center rounded-md h-12" :to="to" :exact="exact" :class="active? 'nav-item--active' : ''">
+    <nuxt-link
+      v-if="to"
+      class="nav-item space-x-4 px-4 inline-flex items-center justify-center rounded-md h-12"
+      :to="to"
+      :exact="exact"
+      :class="handleActiveLink"
+    >
       <svg-icon v-if="icon" class="nav-item__icon stroke-1" :name="icon" />
       <span class="nav-item__title">
         <slot />
@@ -33,6 +39,22 @@ export default {
     exact: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    handleActiveLink () {
+      return this.isActiveLink(this.name) ? 'nav-item--active' : ''
+    }
+  },
+  methods: {
+    isActiveLink (routePath) {
+      const currentPathNames = this.$route.fullPath.split('/')
+      const currentPathNamesClean = currentPathNames.filter((name) => { return name !== '' })
+      return currentPathNamesClean.includes(routePath)
     }
   }
 }
