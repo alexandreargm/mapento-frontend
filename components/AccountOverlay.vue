@@ -1,8 +1,8 @@
 <template>
   <div v-show="isAccountMenuOpen" class="account-overlay flex justify-end xs:justify-start overlay absolute w-full h-full top-0 left-0" @click="toggleAccountMenu()">
-    <div class="account-overlay__sidebar z-30 fixed overflow-y-auto h-full bg-b-light px-2 w-72 flex flex-col">
-      <ProfilePreview class="account-overlay__profile-preview px-4 py-4" />
-      <nav class="account-overlay__nav select-none flex flex-col space-y-2 py-4">
+    <div class="account-overlay__sidebar z-30 fixed overflow-y-auto h-full bg-b-light px-2 py-4 w-72 flex flex-col">
+      <ProfilePreview class="account-overlay__profile-preview p-4" />
+      <nav class="account-overlay__nav select-none flex flex-col space-y-2">
         <NavItem to="/newevent" class="account-overlay__item">
           New event
         </NavItem>
