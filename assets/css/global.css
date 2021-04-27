@@ -10,8 +10,12 @@ button:focus {
 /*
   Use full page height
 */
-html, body, #__nuxt, #__layout {
+html,
+body,
+#__nuxt,
+#__layout {
   height: 100%;
+  color: #333333;
 }
 
 #__nuxt {
