@@ -10,9 +10,7 @@
 </template>
 
 <script>
-import { isActiveLink } from '~/mixins/ui-mixins'
 export default {
-  mixins: [isActiveLink]
 }
 </script>
 
