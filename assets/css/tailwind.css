@@ -9,9 +9,13 @@
   h5,
   h6,
   p,
+  div,
   label,
   span {
     @apply text-t-dark;
+  }
+  ::placeholder {
+    @apply text-t-dark-secondary !important;
   }
 }
 
@@ -47,10 +51,22 @@
     @apply text-t-dark;
   }
   .label {
-    @apply text-lg;
+    @apply text-lg block;
   }
   .input {
-    @apply bg-b-dark h-10 px-6 text-base w-full;
+    @apply bg-b-dark h-10 py-3 px-4 text-base w-full rounded-sm;
+  }
+  .input-file {
+    @apply bg-b-dark py-3 px-4 text-base w-full rounded-sm;
+  }
+  .textarea {
+    @apply bg-b-dark py-3 px-4 text-base w-full rounded-sm;
+  }
+  fieldset .legend {
+    @apply text-lg;
+  }
+  fieldset .label {
+    @apply text-sm;
   }
 }
 
