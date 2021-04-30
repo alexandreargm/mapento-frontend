@@ -1,5 +1,5 @@
 <template>
-  <FeedList :items="groups" class="agenda-groups-following">
+  <FeedList noresults="You are not following any group" class="agenda-groups-following">
     <GroupCard
       v-for="group in groups"
       :key="group.id"
@@ -9,9 +9,6 @@
       :isprivate="group.private"
       :category="group.category.name"
     />
-    <template #empty class="agenda-events__empty">
-      You are not following any group
-    </template>
   </FeedList>
 </template>
 

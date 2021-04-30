@@ -1,5 +1,5 @@
 <template>
-  <FeedList :items="events" class="agenda-events-following">
+  <FeedList noresults="You are not following any event" class="agenda-events-following">
     <EventCard
       v-for="event in events"
       :key="event.id"
@@ -11,9 +11,6 @@
       :category="event.category.name"
       :isprivate="event.private"
     />
-    <template #empty class="agenda-events-following__empty">
-      You are not following any event
-    </template>
   </FeedList>
 </template>
 

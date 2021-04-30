@@ -1,14 +1,11 @@
 <template>
-  <div class="feed-list">
-    <section v-if="isNotEmpty" class="feed-list__items p-4 space-y-2">
-      <slot />
-    </section>
-    <div v-else class="feed-list__empty text-2xl text-t-dark-secondary p-4">
-      <slot name="empty">
-        There are no results
-      </slot>
-    </div>
-  </div>
+  <section class="feed-list p-4 grid gap-4">
+    <slot>
+      <span class="feed-list__empty text-2xl text-t-dark-secondary">
+        {{ noresults }}
+      </span>
+    </slot>
+  </section>
 </template>
 
 <script>
@@ -17,11 +14,10 @@ export default {
     items: {
       type: Array,
       default: null
-    }
-  },
-  computed: {
-    isNotEmpty () {
-      return this.items && this.items.length > 0
+    },
+    noresults: {
+      type: String,
+      default: 'There are no results'
     }
   }
 }

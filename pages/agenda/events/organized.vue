@@ -1,5 +1,5 @@
 <template>
-  <FeedList :items="events" class="agenda-events-organized">
+  <FeedList noresults="No events created yet" class="agenda-events-organized">
     <EventCard
       v-for="event in events"
       :key="event.id"
@@ -9,9 +9,6 @@
       :category="event.category.name"
       :private="event.private"
     />
-    <template #empty class="agenda-events-organized__empty">
-      No events created yet
-    </template>
   </FeedList>
 </template>
 

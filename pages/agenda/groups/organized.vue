@@ -1,5 +1,5 @@
 <template>
-  <FeedList :items="groups" class="agenda-groups-organized">
+  <FeedList noresults="No groups created yet" class="agenda-groups-organized">
     <GroupCard
       v-for="group in groups"
       :key="group.id"
@@ -8,9 +8,6 @@
       :image="group.image"
       :category="group.category.name"
     />
-    <template #empty class="agenda-events__empty">
-      No groups created yet
-    </template>
   </FeedList>
 </template>
 
