@@ -17,7 +17,7 @@ export default {
 <style lang="postcss">
 .page-nav__pages {
   & .nav-item {
-    @apply text-4xl font-extrabold h-16
+    @apply text-4xl font-extrabold h-16 bg-opacity-0
   }
   & .nav-item__title {
     @apply text-t-dark-secondary
@@ -29,7 +29,7 @@ export default {
 
 .page-nav__subpages {
   & .nav-item {
-    @apply h-10 font-semibold
+    @apply h-10 font-semibold bg-opacity-0
   }
   & .nav-item__title {
     @apply text-t-dark-secondary

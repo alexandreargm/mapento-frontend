@@ -43,7 +43,7 @@ export default (context) => {
         * which will be interpreted as days from time of creation or a
         * Date instance. If omitted, the cookie becomes a session cookie.
         */
-      expires: 30 * 6,
+      expires: 360,
 
       /**
         * Define the path where the cookie is available. Defaults to '/'

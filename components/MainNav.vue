@@ -7,7 +7,7 @@
       <NavItem to="/search" icon="outline/search" class="navbar__item">
         Search
       </NavItem>
-      <NavItem to="/agenda/events/following" icon="outline/bookmark" class="navbar__item" :active="isActiveLink('agenda')">
+      <NavItem to="/agenda/events/following" icon="outline/bookmark" class="navbar__item" name="agenda">
         Agenda
       </NavItem>
       <NavItem to="/notifications" icon="outline/bell" class="navbar__item">
@@ -22,9 +22,7 @@
 
 <script>
 import { toggleAccountMenuMutation } from '~/graphql/ui/localMutations'
-import { isActiveLink } from '~/mixins/ui-mixins'
 export default {
-  mixins: [isActiveLink],
   methods: {
     handleToggleAccountMenu () {
       this.$apollo.mutate({

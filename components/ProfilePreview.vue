@@ -1,6 +1,6 @@
 <template>
   <div class="profile-preview space-y-4">
-    <nuxt-link to="/profile" class="provile-preview__header select-none flex flex-row justify-between">
+    <nuxt-link to="/profile/edit/details" class="provile-preview__header select-none flex flex-row justify-between">
       <ProfilePhoto :src="me.avatar" class="profile-preview__photo w-24 h-24" />
       <div class="profile-preview__profile-link text-brand">
         Edit profile
