@@ -14,12 +14,23 @@
   span {
     @apply text-t-dark;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-extrabold;
+  }
   ::placeholder {
     @apply text-t-dark-secondary !important;
   }
 }
 
 @layer components {
+  /*
+    Buttons
+  */
   .btn {
     @apply rounded-full bg-brand h-12 text-white px-6 font-semibold select-none block;
   }
@@ -50,6 +61,10 @@
   .btn:disabled * {
     @apply text-t-dark;
   }
+
+  /*
+    Forms
+  */
   .label {
     @apply text-lg block;
   }
@@ -67,6 +82,22 @@
   }
   fieldset .label {
     @apply text-sm;
+  }
+  .input-group {
+    @apply flex items-center w-full;
+  }
+  .input-icon {
+    @apply h-10 w-10 flex items-center justify-center flex-shrink-0;
+  }
+  .input-group .input {
+    @apply h-10;
+  }
+
+  /*
+    Typography
+  */
+  .sm-section-heading {
+    @apply font-extrabold leading-8 text-lg;
   }
 }
 
