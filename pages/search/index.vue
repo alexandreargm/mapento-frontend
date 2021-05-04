@@ -5,7 +5,7 @@
     </header>
     <main class="">
       <div class="sm-section-heading px-4">
-        Explore categories
+        Explore by topic
       </div>
       <FeedList class="grid-cols-2 md:grid-cols-3">
         <CategoryCard
