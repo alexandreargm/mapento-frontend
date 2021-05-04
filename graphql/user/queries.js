@@ -140,7 +140,7 @@ export const UserUserEventsQuery = gql`
         id
         name
         avatar
-        events {
+        event_owner {
           id
           title
           date
@@ -151,6 +151,18 @@ export const UserUserEventsQuery = gql`
             name
           }
         }
+      }
+    }
+  }
+`
+
+export const UserEventChangesQuery = gql`
+query UserEventChangesQuery {
+    me {
+      id
+      event_owner {
+        id
+        title
       }
     }
   }
