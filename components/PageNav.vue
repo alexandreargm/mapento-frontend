@@ -28,6 +28,9 @@ export default {
 }
 
 .page-nav__subpages {
+  & .nav-item__wrapper {
+    @apply flex-shrink-0;
+  }
   & .nav-item {
     @apply h-10 font-semibold bg-opacity-0
   }
@@ -37,5 +40,6 @@ export default {
   & .nuxt-link-active .nav-item__title {
     @apply text-t-dark
   }
+  @apply overflow-x-auto;
 }
 </style>
