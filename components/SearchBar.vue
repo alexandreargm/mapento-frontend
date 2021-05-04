@@ -15,6 +15,6 @@ export default {
 
 <style lang="postcss">
   .search-bar__input::placeholder {
-    @apply font-semibold text-sm text-t-dark !important;
+    @apply font-semibold text-sm text-t-dark-secondary !important;
   }
 </style>
