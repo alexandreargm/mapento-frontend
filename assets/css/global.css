@@ -15,7 +15,6 @@ body,
 #__nuxt,
 #__layout {
   height: 100%;
-  color: #333333;
 }
 
 #__nuxt {
@@ -24,6 +23,7 @@ body,
 
 #__layout {
   flex: 1;
+  width: 100vw; /* Needed for horizontal scroll fix */
 }
 /*
   End
