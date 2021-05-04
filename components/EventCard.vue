@@ -68,5 +68,8 @@ export default {
 </script>
 
 <style>
-
+.event-card__title {
+  max-height: 4.5rem;
+  @apply overflow-y-hidden;
+}
 </style>

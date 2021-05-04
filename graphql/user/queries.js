@@ -102,3 +102,56 @@ export const UserGroupOwnerQuery = gql`
     }
   }
 `
+
+export const UserGroupEventsQuery = gql`
+  query UserGroupEventsQuery {
+    me {
+      id
+      groups {
+        id
+        name 
+        image
+        events {
+          id
+          title
+          date
+          city
+          private
+          category {
+            id
+            name
+          }
+          event_owner {
+            id
+            name
+            avatar
+          }
+        }
+      }
+    }
+  }
+`
+
+export const UserUserEventsQuery = gql`
+  query UserUserEventsQuery {
+    me {
+      id
+      follows {
+        id
+        name
+        avatar
+        events {
+          id
+          title
+          date
+          city
+          private
+          category {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+`

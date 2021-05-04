@@ -1,5 +1,5 @@
 <template>
-  <section class="feed-list p-4 grid gap-4">
+  <section class="feed-list p-4 grid gap-2">
     <slot>
       <span class="feed-list__empty text-2xl text-t-dark-secondary">
         {{ noresults }}

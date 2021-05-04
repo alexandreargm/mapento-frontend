@@ -10,7 +10,7 @@
       <NavItem to="/agenda/events/following" icon="outline/bookmark" class="navbar__item" name="agenda">
         Agenda
       </NavItem>
-      <NavItem to="/notifications" icon="outline/bell" class="navbar__item">
+      <NavItem to="/notifications/events" icon="outline/bell" class="navbar__item">
         Notifications
       </NavItem>
       <NavItem icon="outline/user" class="navbar__item" @click="handleToggleAccountMenu">
