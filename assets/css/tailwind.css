@@ -2,16 +2,33 @@
 @tailwind utilities;
 
 @layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  div,
-  label,
-  span {
+  /*
+    Scollbar styles
+  */
+
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    @apply w-1 h-1 !important;
+  }
+  *::-webkit-scrollbar-track {
+    @apply bg-b-light m-4 rounded-full;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full border-0;
+    background: #ccc;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-t-dark-secondary;
+  }
+  @screen sm {
+    *::-webkit-scrollbar {
+      @apply w-3 h-3 !important;
+    }
+  }
+  /*
+    End scrollbar styles
+  */
+  body {
     @apply text-t-dark;
   }
   h1,
@@ -20,7 +37,7 @@
   h4,
   h5,
   h6 {
-    @apply font-extrabold;
+    @apply font-extrabold leading-none;
   }
   ::placeholder {
     @apply text-t-dark-secondary !important;
@@ -97,7 +114,13 @@
     Typography
   */
   .sm-section-heading {
-    @apply font-extrabold leading-8 text-lg;
+    @apply font-extrabold text-lg leading-8;
+  }
+  .md-section-heading {
+    @apply font-extrabold text-2xl leading-10;
+  }
+  .lg-section-heading {
+    @apply font-extrabold text-2xl leading-10;
   }
 }
 
