@@ -190,3 +190,29 @@ export const UserEventChangesQuery = gql`
     }
   }
 `
+
+export const UserEventsCommentsQuery = gql`
+  query UserEventsCommentsQuery {
+    me {
+      id
+      events {
+        comments {
+          id
+          created_at
+          author {
+            id
+            name
+            avatar
+          }
+          commentable {
+            __typename
+            ... on Event {
+              id
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+`
