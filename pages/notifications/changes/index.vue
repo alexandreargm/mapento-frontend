@@ -3,7 +3,7 @@
     <div class="page-notifications__changes">
       <FeedList>
         <EventUpdateCard
-          v-for="event_update in eventUpdatesComputed"
+          v-for="event_update in event_updates"
           :key="`event_update_${event_update.id}`"
           :title="event_update.event.title"
           :changes="event_update.changes"
@@ -17,43 +17,19 @@
 </template>
 
 <script>
+import { extractObjectsOfType } from '~/plugins/feed-utils'
 import { UserEventChangesQuery } from '~/graphql/user/queries'
 export default {
   layout: 'notifications',
   data () {
     return {
-      event_updates: null,
-      follows: [],
-      range: ['event_owner', 'event_updates']
+      event_updates: null
     }
   },
   apollo: {
-    follows: {
+    event_updates: {
       query: UserEventChangesQuery,
-      update: data => data.me.follows
-    }
-  },
-  computed: {
-    eventUpdatesComputed () {
-      return this.extractObjectsOfType(this.follows, 'EventUpdate')
-    }
-  },
-  methods: {
-    extractObjectsOfType (dataArray, typename) {
-      const isTargetTypename = ({ __typename }) => __typename === typename
-      let target = null
-
-      target = dataArray.filter(isTargetTypename)
-      if (target && target.length > 0) { return target }
-
-      return dataArray.flatMap((object) => {
-        for (const attributeIndex in object) {
-          if (Array.isArray(object[attributeIndex])) {
-            return this.extractObjectsOfType(object[attributeIndex], typename)
-          }
-        }
-        return null
-      })
+      update: data => extractObjectsOfType(data.me.follows, 'EventUpdate')
     }
   }
 }

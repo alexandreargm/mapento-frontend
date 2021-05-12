@@ -6,18 +6,16 @@
           From your groups
         </h1>
         <FeedRow class="page-notifications__group-events-feed">
-          <template v-for="group in groups" v-bind="group.id">
-            <EventCard
-              v-for="event in group.events"
-              :key="`group_event_${event.id}`"
-              :title="event.title"
-              :city="event.city"
-              :date="event.date"
-              :private="event.private"
-              :category="event.category.name"
-              :avatar="event.event_owner.avatar"
-            />
-          </template>
+          <EventCard
+            v-for="event in group_events"
+            :key="`group_event_${event.id}`"
+            :title="event.title"
+            :city="event.city"
+            :date="event.date"
+            :private="event.private"
+            :category="event.category.name"
+            :avatar="event.event_owner.avatar"
+          />
         </FeedRow>
       </div>
       <div class="page-notifications__group-events">
@@ -25,19 +23,17 @@
           From your follows
         </h2>
         <FeedList class="page-notifications__group-events-feed">
-          <template v-for="follow in follows" v-bind="follow.id">
-            <EventCard
-              v-for="event in follow.event_owner"
-              :key="`follow_event_${event.id}`"
-              :title="event.title"
-              :city="event.city"
-              :date="event.date"
-              :private="event.private"
-              :author="follow.name"
-              :category="event.category.name"
-              :avatar="follow.avatar"
-            />
-          </template>
+          <EventCard
+            v-for="event in follow_events"
+            :key="`follow_event_${event.id}`"
+            :title="event.title"
+            :city="event.city"
+            :date="event.date"
+            :private="event.private"
+            :author="event.event_owner.name"
+            :category="event.category.name"
+            :avatar="event.event_owner.avatar"
+          />
         </FeedList>
       </div>
     </main>
@@ -45,24 +41,28 @@
 </template>
 
 <script>
+import { extractObjectsOfType, filterObjectDuplicatesByKey } from '~/plugins/feed-utils'
 import { UserGroupEventsQuery, UserUserEventsQuery } from '~/graphql/user/queries'
 
 export default {
   layout: 'notifications',
   data () {
     return {
-      groups: null,
-      follows: null
+      follow_events: null,
+      group_events: null
     }
   },
   apollo: {
-    groups: {
+    group_events: {
       query: UserGroupEventsQuery,
-      update: data => data.me.groups
+      update: (data) => {
+        const extractedEvents = extractObjectsOfType(data.me.groups, 'Event')
+        return filterObjectDuplicatesByKey(extractedEvents, 'id')
+      }
     },
-    follows: {
+    follow_events: {
       query: UserUserEventsQuery,
-      update: data => data.me.follows
+      update: data => extractObjectsOfType(data.me.follows, 'Event')
     }
   }
 }

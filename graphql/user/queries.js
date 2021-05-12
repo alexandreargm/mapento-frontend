@@ -138,14 +138,17 @@ export const UserUserEventsQuery = gql`
       id
       follows {
         id
-        name
-        avatar
         event_owner {
           id
           title
           date
           city
           private
+          event_owner {
+            id
+            name
+            avatar
+          }
           category {
             id
             name

@@ -5,7 +5,7 @@
         {{ title }}
       </span>
     </div>
-    <div class="event-update-card__body flex space-x-2">
+    <div class="event-update-card__body flex space-x-4">
       <img v-if="avatar" :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
       <div class="event-update-card__details space-y-1">
         <div class="event-update-card__publication text-t-dark-secondary text-xs">
