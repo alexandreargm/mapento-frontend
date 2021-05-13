@@ -36,14 +36,14 @@ export default {
       type: String,
       required: true
     },
-    type: {
+    parent: {
       type: String,
-      required: true
+      default: null
     }
   },
   computed: {
     commentDesctiptionComputed () {
-      return this.type === 'Comment' ? 'Replied to a comment' : 'Commented'
+      return this.parent === null ? 'Commented' : 'Replied to a comment'
     }
   }
 }

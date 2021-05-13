@@ -6,8 +6,8 @@
           v-for="comment in comments"
           :key="`event_comment_${comment.id}`"
           :title="comment.commentable.title"
-          :type="comment.commentable.__typename"
           :date="comment.created_at"
+          :parent="comment.parent_id"
           :avatar="comment.author.avatar"
           :author="comment.author.name"
         />

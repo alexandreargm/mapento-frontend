@@ -196,8 +196,10 @@ export const UserEventsCommentsQuery = gql`
     me {
       id
       events {
+        id
         comments {
           id
+          parent_id
           created_at
           author {
             id
@@ -205,7 +207,6 @@ export const UserEventsCommentsQuery = gql`
             avatar
           }
           commentable {
-            __typename
             ... on Event {
               id
               title
