@@ -12,7 +12,12 @@
         <slot />
       </span>
     </nuxt-link>
-    <button v-else class="nav-item space-x-4 px-4 inline-flex items-center justify-center rounded-md h-12" @click="$emit('click')">
+    <button
+      v-else
+      class="nav-item space-x-4 px-4 inline-flex items-center justify-center rounded-md h-12"
+      :class="handleActiveLink"
+      @click="$emit('click')"
+    >
       <svg-icon v-if="icon" class="nav-item__icon stroke-1" :name="icon" />
       <span class="nav-item__title">
         <slot />

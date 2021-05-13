@@ -4,16 +4,16 @@
       <NavItem to="/" icon="outline/home" class="navbar__item" exact>
         Home
       </NavItem>
-      <NavItem to="/search" icon="outline/search" class="navbar__item">
+      <NavItem to="/search" icon="outline/search" class="navbar__item" name="search">
         Search
       </NavItem>
       <NavItem to="/agenda/events/following" icon="outline/bookmark" class="navbar__item" name="agenda">
         Agenda
       </NavItem>
-      <NavItem to="/notifications/events" icon="outline/bell" class="navbar__item">
+      <NavItem to="/notifications/events" icon="outline/bell" class="navbar__item" name="notifications">
         Notifications
       </NavItem>
-      <NavItem icon="outline/user" class="navbar__item" @click="handleToggleAccountMenu">
+      <NavItem icon="outline/user" class="navbar__item" name="profile" @click="handleToggleAccountMenu">
         Account
       </NavItem>
     </div>
