@@ -17,13 +17,13 @@ export default {
 <style lang="postcss">
 .page-nav__pages {
   & .nav-item {
-    @apply text-4xl font-extrabold h-16 bg-opacity-0
+    @apply text-4xl font-extrabold h-16 bg-opacity-0;
   }
   & .nav-item__title {
-    @apply text-t-dark-secondary
+    @apply text-t-dark-secondary;
   }
   & .nav-item--active .nav-item__title {
-    @apply text-t-dark
+    @apply text-t-dark;
   }
 }
 
@@ -32,13 +32,13 @@ export default {
     @apply flex-shrink-0;
   }
   & .nav-item {
-    @apply h-10 font-semibold bg-opacity-0
+    @apply h-10 font-semibold bg-opacity-0;
   }
   & .nav-item__title {
-    @apply text-t-dark-secondary
+    @apply text-t-dark-secondary;
   }
   & .nuxt-link-active .nav-item__title {
-    @apply text-t-dark
+    @apply text-brand;
   }
   @apply overflow-x-auto;
 }
