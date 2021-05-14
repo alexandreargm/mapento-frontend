@@ -163,27 +163,24 @@ export const UserEventChangesQuery = gql`
   query UserEventChangesQuery {
     me {
       id
-      follows {
+      events {
         id
-        event_owner {
+        event_updates {
           id
-          event_updates {
+          created_at
+          event {
             id
-            created_at
-            event {
-              id
-              title
-            }
-            author {
-              id
-              name
-              avatar
-            }
-            changes {
-              id
-              description
-              type
-            }
+            title
+          }
+          author {
+            id
+            name
+            avatar
+          }
+          changes {
+            id
+            description
+            type
           }
         }
       }

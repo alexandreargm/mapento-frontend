@@ -29,7 +29,7 @@ export default {
   apollo: {
     event_updates: {
       query: UserEventChangesQuery,
-      update: data => extractObjectsOfType(data.me.follows, 'EventUpdate')
+      update: data => extractObjectsOfType(data.me.events, 'EventUpdate')
     }
   }
 }
