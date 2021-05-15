@@ -128,6 +128,27 @@ export const UserGroupEventsQuery = gql`
           }
         }
       }
+      group_owner {
+        id
+        name 
+        image
+        events {
+          id
+          title
+          date
+          city
+          private
+          category {
+            id
+            name
+          }
+          event_owner {
+            id
+            name
+            avatar
+          }
+        }
+      }
     }
   }
 `

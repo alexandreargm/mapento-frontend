@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { extractObjectsOfType, filterObjectDuplicatesByKey } from '~/plugins/feed-utils'
+import { extractObjectsOfType, filterObjectDuplicatesByKey, extractMultipleObjectsOfType } from '~/plugins/feed-utils'
 import { UserGroupEventsQuery, UserUserEventsQuery } from '~/graphql/user/queries'
 
 export default {
@@ -56,7 +56,7 @@ export default {
     group_events: {
       query: UserGroupEventsQuery,
       update: (data) => {
-        const extractedEvents = extractObjectsOfType(data.me.groups, 'Event')
+        const extractedEvents = extractMultipleObjectsOfType(data.me, 'Event')
         return filterObjectDuplicatesByKey(extractedEvents, 'id')
       }
     },

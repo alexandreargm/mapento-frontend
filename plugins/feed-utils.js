@@ -15,6 +15,16 @@ export const extractObjectsOfType = function (dataArray, typename) {
   })
 }
 
+export const extractMultipleObjectsOfType = function (dataObject, typename) {
+  let objects = []
+  for (const attributeIndex in dataObject) {
+    if (Array.isArray(dataObject[attributeIndex])) {
+      objects = [...objects, ...extractObjectsOfType(dataObject[attributeIndex], typename)]
+    }
+  }
+  return objects
+}
+
 export const filterObjectDuplicatesByKey = function (dataArray, key) {
   return [...new Map(dataArray.map(item => [item[key], item])).values()]
 }
