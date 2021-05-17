@@ -1,5 +1,5 @@
 <template>
-  <div class="page-notifications">
+  <div class="page-new-events">
     <main class="space-y-6">
       <div class="page-notifications__group-events">
         <h1 class="md-section-heading px-4">
