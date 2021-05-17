@@ -232,6 +232,25 @@ export const UserEventsCommentsQuery = gql`
           }
         }
       }
+      event_owner {
+        id
+        comments {
+          id
+          parent_id
+          created_at
+          author {
+            id
+            name
+            avatar
+          }
+          commentable {
+            ... on Event {
+              id
+              title
+            }
+          }
+        }
+      }
     }
   }
 `
