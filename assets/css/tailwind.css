@@ -54,6 +54,9 @@
   .btn * {
     @apply text-white;
   }
+  .btn--rounded {
+    @apply rounded-full;
+  }
   .btn--secondary {
     @apply bg-b-dark text-t-dark-secondary;
   }
@@ -108,6 +111,38 @@
   }
   .input-group .input {
     @apply h-10;
+  }
+  .select-filter {
+    @apply block m-0 font-semibold text-sm text-brand px-4 pr-8 h-10 rounded-full box-border bg-b-dark outline-none shadow-none cursor-pointer select-none bg-no-repeat;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5.91667L5.09966e-07 0.0833388L10 0.0833397L5 5.91667Z' fill='%233B7AF7'/%3E%3C/svg%3E");
+    background-position: right 1rem top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+    transition: "background" 300ms;
+  }
+  .select-filter::-ms-expand {
+    display: none;
+  }
+  .select-filter:focus {
+    @apply outline-none shadow-none;
+  }
+  .select-filter:active {
+    @apply bg-opacity-100 !important;
+    transition: "background" 0ms;
+  }
+  .select-filter:hover {
+    @apply bg-b-light bg-opacity-0;
+  }
+  .select-filter option {
+    @apply font-normal bg-b-light py-2 text-t-dark;
+  }
+  .select-filter:disabled,
+  .select-filter[aria-disabled="true"] {
+    @apply text-b-medium;
+  }
+  .select-filter:disabled:hover,
+  .select-filter[aria-disabled="true"] {
+    @apply bg-b-medium text-t-light-secondary;
   }
 
   /*
