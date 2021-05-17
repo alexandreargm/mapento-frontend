@@ -31,11 +31,12 @@
 <script>
 import { extractMultipleObjectsOfType } from '~/plugins/feed-utils'
 import { UserEventsCommentsQuery, MeQuery } from '~/graphql/user/queries'
+
 export default {
   layout: 'notifications',
   data () {
     return {
-      comments: null,
+      comments: [],
       meId: null,
       filterBy: 'All comments'
     }
@@ -43,10 +44,9 @@ export default {
   apollo: {
     comments: {
       query: UserEventsCommentsQuery,
-      update: (data) => {
+      update (data) {
         const unsortedComments = extractMultipleObjectsOfType(data.me, 'Comment')
-        // const sortedComments = unsortedComments.sort('date')
-        return unsortedComments
+        return this.$sortBy(unsortedComments, comment => [-comment.id, new Date(comment.created_at)])
       }
     },
     meId: {

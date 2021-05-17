@@ -24,7 +24,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/feed-utils.js', mode: 'client', ssr: 'false' }
+    { src: '~/plugins/feed-utils.js', mode: 'client', ssr: 'false' },
+    { src: '~/plugins/array-sort-by.js', mode: 'client', ssr: 'false' }
   ],
 
   router: {
@@ -55,6 +56,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['array-sort-by']
   },
   apollo: {
     clientConfigs: {
