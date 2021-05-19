@@ -2,19 +2,13 @@
   <div class="page-comments">
     <main class="space-y-6">
       <div class="page-comments__event-comments">
+        <div class="px-4 flex space-x-2">
+          <FeedFilterSelect :options="filters.date.options" :selected-option="filters.date.selectedOption" @change="filters.date.selectedOption = $event" />
+          <FeedFilterSelect :options="filters.author.options" :selected-option="filters.author.selectedOption" @change="filters.author.selectedOption = $event" />
+        </div>
         <FeedList>
-          <div class="flex space-x-2 overflow-y-auto">
-            <select v-model="filterBy" class="select-filter">
-              <option selected>
-                All comments
-              </option>
-              <option>Others</option>
-              <option>Mine</option>
-            </select>
-          </div>
           <CommentCard
-            v-for="comment in comments"
-            v-show="handleFilterEvent(comment)"
+            v-for="comment in filteredAndSortedComments"
             :key="`event_comment_${comment.id}`"
             :title="comment.commentable.title"
             :date="comment.created_at"
@@ -38,15 +32,18 @@ export default {
     return {
       comments: [],
       meId: null,
-      filterBy: 'All comments'
+      filters:
+        {
+          date: { selectedOption: 'Newest', options: [{ value: 'Newest' }, { value: 'Oldest' }] },
+          author: { selectedOption: 'Author', options: [{ value: 'Author' }, { value: 'Mine' }, { value: 'Others' }] }
+        }
     }
   },
   apollo: {
     comments: {
       query: UserEventsCommentsQuery,
       update (data) {
-        const unsortedComments = extractMultipleObjectsOfType(data.me, 'Comment')
-        return this.$sortBy(unsortedComments, comment => [-comment.id, new Date(comment.created_at)])
+        return extractMultipleObjectsOfType(data.me, 'Comment')
       }
     },
     meId: {
@@ -54,13 +51,35 @@ export default {
       update: data => data.me.id
     }
   },
+  computed: {
+    filteredComments () {
+      let filteredComments = this.comments
+      if (this.comments.length === 0) { return this.comments }
+      filteredComments = this.filterByAuthor(filteredComments, this.filters.author.selectedOption)
+      return filteredComments
+    },
+    filteredAndSortedComments () {
+      let filteredAndSortedComments = this.filteredComments
+      if (this.filteredComments === 0) { return this.filteredComments }
+      filteredAndSortedComments = this.sortByDate(filteredAndSortedComments, this.filters.date.selectedOption)
+      return filteredAndSortedComments
+    }
+  },
   methods: {
-    handleFilterEvent (event) {
-      if (this.filterBy === 'All comments') { return true }
-      const meIsAuthor = event.author.id === this.meId
-      if (this.filterBy === 'Mine' && meIsAuthor) { return true }
-      if (this.filterBy === 'Others' && !meIsAuthor) { return true }
-      return false
+    filterByAuthor (comments, selected) {
+      const optionFilterFunctions = {
+        Mine: comment => comment.author.id === this.meId,
+        Others: comment => comment.author.id !== this.meId
+      }
+      if (selected === 'Author') { return comments }
+      return comments.filter(optionFilterFunctions[selected])
+    },
+    sortByDate (comments, order) {
+      const optionSortFunctions = {
+        Newest: comment => [-new Date(comment.created_at)],
+        Oldest: comment => [new Date(comment.created_at)]
+      }
+      return this.$sortBy(comments, optionSortFunctions[order])
     }
   }
 }
