@@ -4,7 +4,7 @@
       v-for="(option, index) in options"
       :key="`${selected}_${index}`"
       :value="option.value"
-      :selected="selectedOption === option.value"
+      :selected="value === option.value"
       :disabled="option.disabled"
     />
   </select>
@@ -17,29 +17,15 @@ export default {
       type: Array,
       required: true
     },
-    selectedOption: {
+    value: {
       type: String,
       required: true
     }
   },
   data () {
     return {
-      selected: this.selectedOption
+      selected: this.value
     }
-  },
-  mounted () {
-    // this.updateSelectedOnMount()
-  },
-  methods: {
-    // findSelectedOption () {
-    //   const getSelectedOption = this.options.find(option => option.selected)
-    //   if (!getSelectedOption) { throw new Error('Missing a selected option') }
-    //   return getSelectedOption
-    // },
-    // updateSelectedOnMount () {
-    //   const getSelectedOption = this.findSelectedOption()
-    //   // this.selected = getSelectedOption.value
-    // }
   }
 }
 </script>

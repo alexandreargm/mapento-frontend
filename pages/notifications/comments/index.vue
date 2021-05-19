@@ -2,13 +2,10 @@
   <div class="page-comments">
     <main class="space-y-6">
       <div class="page-comments__event-comments">
-        <div class="px-4 flex space-x-2">
-          <FeedFilterSelect :options="filters.date.options" :selected-option="filters.date.selectedOption" @change="filters.date.selectedOption = $event" />
-          <FeedFilterSelect :options="filters.author.options" :selected-option="filters.author.selectedOption" @change="filters.author.selectedOption = $event" />
-        </div>
+        <FeedFilter :filters="filters" />
         <FeedList>
           <CommentCard
-            v-for="comment in filteredAndSortedComments"
+            v-for="comment in filteredComments"
             :key="`event_comment_${comment.id}`"
             :title="comment.commentable.title"
             :date="comment.created_at"
@@ -32,11 +29,10 @@ export default {
     return {
       comments: [],
       meId: null,
-      filters:
-        {
-          date: { selectedOption: 'Newest', options: [{ value: 'Newest' }, { value: 'Oldest' }] },
-          author: { selectedOption: 'Author', options: [{ value: 'Author' }, { value: 'Mine' }, { value: 'Others' }] }
-        }
+      filters: {
+        date: { value: 'Newest', options: [{ value: 'Newest' }, { value: 'Oldest' }] },
+        author: { value: 'Author', options: [{ value: 'Author' }, { value: 'Mine' }, { value: 'Others' }] }
+      }
     }
   },
   apollo: {
@@ -55,31 +51,26 @@ export default {
     filteredComments () {
       let filteredComments = this.comments
       if (this.comments.length === 0) { return this.comments }
-      filteredComments = this.filterByAuthor(filteredComments, this.filters.author.selectedOption)
+      filteredComments = this.filterByAuthor(filteredComments, this.filters.author.value)
+      filteredComments = this.sortByDate(filteredComments, this.filters.date.value)
       return filteredComments
-    },
-    filteredAndSortedComments () {
-      let filteredAndSortedComments = this.filteredComments
-      if (this.filteredComments === 0) { return this.filteredComments }
-      filteredAndSortedComments = this.sortByDate(filteredAndSortedComments, this.filters.date.selectedOption)
-      return filteredAndSortedComments
     }
   },
   methods: {
-    filterByAuthor (comments, selected) {
+    filterByAuthor (comments, value) {
       const optionFilterFunctions = {
         Mine: comment => comment.author.id === this.meId,
         Others: comment => comment.author.id !== this.meId
       }
-      if (selected === 'Author') { return comments }
-      return comments.filter(optionFilterFunctions[selected])
+      if (value === 'Author') { return comments }
+      return comments.filter(optionFilterFunctions[value])
     },
-    sortByDate (comments, order) {
-      const optionSortFunctions = {
+    sortByDate (comments, value) {
+      const optionFilterFunctions = {
         Newest: comment => [-new Date(comment.created_at)],
         Oldest: comment => [new Date(comment.created_at)]
       }
-      return this.$sortBy(comments, optionSortFunctions[order])
+      return this.$sortBy(comments, optionFilterFunctions[value])
     }
   }
 }
