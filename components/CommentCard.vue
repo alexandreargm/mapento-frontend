@@ -34,7 +34,7 @@ export default {
     },
     avatar: {
       type: String,
-      required: true
+      default: ''
     },
     parent: {
       type: String,
