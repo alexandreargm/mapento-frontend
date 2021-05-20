@@ -1,11 +1,11 @@
 <template>
-  <div class="feed-filter flex space-x-2 overflow-y-auto px-4">
+  <div class="feed-filter flex space-x-2 overflow-y-auto -mt-4">
     <FeedFilterSelect
       v-for="filter in filters"
       :key="filter.id"
       :options="filter.options"
       :value="filter.value"
-      @change="filter.value = $event"
+      @change="updateFilterValue(filter, $event)"
     />
   </div>
 </template>
@@ -18,8 +18,9 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
+  methods: {
+    updateFilterValue (filter, value) {
+      filter.value = value
     }
   }
 }

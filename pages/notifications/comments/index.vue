@@ -2,8 +2,8 @@
   <div class="page-comments">
     <main class="space-y-6">
       <div class="page-comments__event-comments">
-        <FeedFilter :filters="filters" />
         <FeedList>
+          <FeedFilter :filters="filters" />
           <CommentCard
             v-for="comment in filteredComments"
             :key="`event_comment_${comment.id}`"
@@ -30,8 +30,8 @@ export default {
       comments: [],
       meId: null,
       filters: {
-        date: { value: 'Newest', options: [{ value: 'Newest' }, { value: 'Oldest' }] },
-        author: { value: 'Author', options: [{ value: 'Author' }, { value: 'Mine' }, { value: 'Others' }] }
+        date: { value: 'Newest', options: ['Newest', 'Oldest'] },
+        author: { value: 'Author', options: ['Author', 'Mine', 'Others'] }
       }
     }
   },

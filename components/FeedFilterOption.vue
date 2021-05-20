@@ -1,6 +1,6 @@
 <template>
-  <option :value="value" :selected="selected" :disabled="disabled" class="feed-filter-option">
-    {{ label || value }}
+  <option :value="value" :selected="selected" class="feed-filter-option">
+    {{ value }}
   </option>
 </template>
 
@@ -11,15 +11,7 @@ export default {
       type: String,
       required: true
     },
-    label: {
-      type: String,
-      default: null
-    },
     selected: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
       type: Boolean,
       default: false
     }
