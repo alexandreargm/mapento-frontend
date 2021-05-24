@@ -15,5 +15,9 @@ module.exports = {
     'vue'
   ],
   rules: {
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    indent: ['error', 2],
+    'no-multi-spaces': ['error']
   }
 }
