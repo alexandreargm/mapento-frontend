@@ -44,7 +44,9 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     // https://vueformulate.com
-    '@braid/vue-formulate/nuxt'
+    '@braid/vue-formulate/nuxt',
+    // https://github.com/nuxt-community/stylelint-module
+    '@nuxtjs/stylelint-module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
