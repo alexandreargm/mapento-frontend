@@ -42,7 +42,9 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    // https://vueformulate.com
+    '@braid/vue-formulate/nuxt'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -62,6 +64,9 @@ export default {
     clientConfigs: {
       default: '~/modules/apollo-nuxt/apollo-config.js'
     }
+  },
+  formulate: {
+    configPath: '~/modules/vue-formulate/formulate.config.js'
   },
   // Allows hot-reloading when running inside a docker container.
   watchers: {
