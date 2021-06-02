@@ -7,7 +7,7 @@
     Works on Chrome, Edge, and Safari
   */
   *::-webkit-scrollbar {
-    @apply w-1 h-1 !important;
+    @apply w-1 h-1 #{!important};
   }
   *::-webkit-scrollbar-track {
     @apply bg-b-light m-4 rounded-full;
@@ -21,7 +21,7 @@
   }
   @screen sm {
     *::-webkit-scrollbar {
-      @apply w-3 h-3 !important;
+      @apply w-3 h-3 #{!important};
     }
   }
   
@@ -61,7 +61,7 @@
   }
 
   ::placeholder {
-    @apply text-t-dark-secondary !important;
+    @apply text-t-dark-secondary #{!important};
   }
 }
 
@@ -83,7 +83,7 @@
     @apply bg-white;
   }
   .container_fluid {
-    @apply h-full !important;
+    @apply h-full #{!important};
   }
 
   /*
