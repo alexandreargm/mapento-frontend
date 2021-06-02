@@ -1,6 +1,6 @@
 <template>
-  <div class="layout__inner layout-agenda flex flex-col xs:flex-row h-full xl:justify-center">
-    <div class="container relative xs:max-w-tablet md:max-w-laptop flex-1 overflow-y-auto bg-b-dark">
+  <div class="layout">
+    <div class="container">
       <PageNav>
         <template #pages>
           <NavItem to="/agenda/events/following" :name="'events'">

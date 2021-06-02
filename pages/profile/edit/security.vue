@@ -1,6 +1,6 @@
 <template>
-  <div class="profile-security-edit bg-white">
-    <form class="profile-security-edit__form space-y-6 bg-white p-4 max-w-md">
+  <div class="profile-security-edit ">
+    <form class="profile-security-edit__form space-y-6 p-4">
       <fieldset class="space-y-4">
         <legend class="legend">
           Change password
@@ -25,7 +25,7 @@
         </div>
       </fieldset>
       <div class="profile-security-edit__actions flex justify-end space-x-4">
-        <button class="profile-security-edit__cancel btn btn--secondary">
+        <button class="profile-security-edit__cancel btn btn--simple">
           Cancel
         </button>
         <button type="submit" class="profile-security-edit__submit btn">

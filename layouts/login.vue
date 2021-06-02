@@ -1,5 +1,5 @@
 <template>
-  <div class="layout__inner flex h-full">
+  <div class="flex h-full">
     <Nuxt class="flex-grow-1" />
   </div>
 </template>

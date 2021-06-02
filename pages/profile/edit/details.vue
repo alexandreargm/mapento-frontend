@@ -1,6 +1,6 @@
 <template>
-  <div class="profile-details-edit bg-white">
-    <form class="profile-details-edit__form space-y-6 bg-white p-4 max-w-md">
+  <div class="profile-details-edit ">
+    <form class="profile-details-edit__form space-y-6 p-4">
       <div class="profile-details-edit__avatar">
         <label for="avatar" class="profile-details-edit__avatar-label label mb-2">
           Avatar
@@ -29,7 +29,7 @@
         <textarea id="description" type="text" class="profile-details-edit__description-textarea textarea" :value="description" rows="3" />
       </div>
       <div class="profile-details-edit__actions flex justify-end space-x-4">
-        <button class="profile-details-edit__cancel btn btn--secondary">
+        <button class="profile-details-edit__cancel btn btn--simple">
           Cancel
         </button>
         <button type="submit" class="profile-details-edit__submit btn">
