@@ -3,7 +3,6 @@
     <main class="space-y-6">
       <div class="page-comments__event-comments">
         <FeedList>
-          <FeedFilter :filters="filters" />
           <CommentCard
             v-for="comment in filteredComments"
             :key="`event_comment_${comment.id}`"
