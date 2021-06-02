@@ -1,7 +1,43 @@
 <template>
   <div class="page-following-events">
-    <FeedList noresults="You are not following any event" class="agenda-events-following">
-      <FeedFilter :filters="filters" />
+    <FeedList
+      noresults="You are not following any event"
+      class="agenda-events-following"
+    >
+      <FeedFilter>
+        <FeedFilterItem :label="orderByLabel">
+          <FormulateInput
+            v-model="orderByValue"
+            :options="orderByOptions"
+            type="radio"
+            label="Order by"
+          />
+        </FeedFilterItem>
+        <FeedFilterItem :label="categoryFilterLabel">
+          <FormulateInput
+            v-model="categoryFilterValue"
+            :options="categoryFilterOptions"
+            type="radio"
+            label="Filter by category"
+          />
+        </FeedFilterItem>
+        <FeedFilterItem :label="dateFilterLabel">
+          <FormulateInput
+            v-model="dateFilterValue"
+            :options="dateFilterOptions"
+            type="radio"
+            label="Show events that start in the next..."
+          />
+        </FeedFilterItem>
+        <FeedFilterItem :label="cityFilterLabel">
+          <FormulateInput
+            v-model="cityFilterValue"
+            :options="cityFilterOptions"
+            type="vue-select"
+            label="Show events located in"
+          />
+        </FeedFilterItem>
+      </FeedFilter>
       <EventCard
         v-for="event in events"
         :key="event.id"
@@ -25,12 +61,18 @@ export default {
   data () {
     return {
       events: [],
-      categoryNames: [],
-      filters: {
-        date: { value: 'Newest', options: ['Newest', 'Oldest'] },
-        category: { value: 'Category', options: ['Category'] }
-        // city: { value: 'City', options: [{ value: 'City' }, { value: 'Oldest' }] }
-      }
+      orderByValue: 'new',
+      orderByOptions: { new: 'Newest', popular: 'Most popular', participants: 'Amount of participants' },
+      orderByLabel: 'Order by',
+      categoryFilterOptions: { all: 'Show all' },
+      categoryFilterValue: 'all',
+      categoryFilterLabel: 'Categories',
+      dateFilterValue: 'all',
+      dateFilterOptions: { all: 'Show all', day: '24 hours', week: '7 days', month: '30 days', semester: '6 months', year: '1 year' },
+      dateFilterLabel: 'Event date',
+      cityFilterOptions: [{ label: 'Show all', value: 'all' }, { label: 'Alicante', value: 'alicante' }, { label: 'Valencia', value: 'valencia' }, { label: 'Madrid', value: 'madrid' }, { label: 'Barcelona', value: 'barcelona' }, { label: 'Elche' }, { label: 'Guardamar' }],
+      cityFilterValue: 'all',
+      cityFilterLabel: 'City'
     }
   },
   apollo: {
@@ -38,11 +80,11 @@ export default {
       query: UserEventsQuery,
       update: data => data.me.events
     },
-    categories: {
+    _updateCategoryFilterOptions: {
       query: AllCategoriesQuery,
       update ({ allCategories }) {
         const getCategoryNames = allCategories.map(({ name }) => name)
-        this.appendCategoryOptions(getCategoryNames)
+        this.categoryFilterOptions = { ...this.categoryFilterOptions, ...this.createOptions(getCategoryNames) }
         return null
       }
     }
@@ -56,13 +98,24 @@ export default {
     }
   },
   methods: {
-    appendCategoryOptions (fetchedCategoryNames) {
-      this.filters.category.options.push(...fetchedCategoryNames)
+    createOptions (optionNames) {
+      return optionNames.reduce((acc, categoryName) => {
+        const getParsedCategoryName = _replaceSpacesWithDashes(categoryName)
+        const getUpperCaseCategoryName = _uppercaseCategoryName(categoryName)
+        acc[getParsedCategoryName] = getUpperCaseCategoryName
+        return acc
+      }, {})
+
+      function _replaceSpacesWithDashes (string) {
+        return string.replaceAll(' ', '-')
+      }
+
+      function _uppercaseCategoryName (categoryName) {
+        const firstLetter = categoryName[0].toUpperCase()
+        const restOfString = categoryName.slice(1)
+        return firstLetter + restOfString
+      }
     }
   }
 }
 </script>
-
-<style>
-
-</style>
