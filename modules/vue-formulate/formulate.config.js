@@ -25,7 +25,7 @@ export default {
       case 'box':
         return 'py-2 pr-3 select-none'
       default:
-        return 'font-medium block mb-6'
+        return 'font-medium block'
       }
     },
     element: '',
