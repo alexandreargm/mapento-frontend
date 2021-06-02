@@ -60,5 +60,4 @@ export default {
   max-height: 4.5em;
   text-overflow: ellipsis;
 }
-.group-card__image {}
 </style>
