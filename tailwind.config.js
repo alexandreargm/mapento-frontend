@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   future: {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
@@ -20,12 +21,12 @@ module.exports = {
     },
     colors: {
       'b-light': '#ffffff',
-      'b-dark': '#E9EAEC',
+      'b-dark': '#e7eaee',
       'b-medium': '#DCDCDC',
       't-light': '#454545',
       't-light-secondary': '#7e7e7e',
       't-dark': '#454545',
-      't-dark-secondary': '#777D88',
+      't-dark-secondary': '#828A98',
       brand: '#3B7AF7',
       black: '#000000',
       white: '#ffffff'
