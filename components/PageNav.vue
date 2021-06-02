@@ -35,7 +35,7 @@ export default {
     @apply h-10 font-semibold bg-opacity-0;
   }
   & .nav-item__title {
-    @apply text-t-dark-secondary;
+    @apply text-t-dark-secondary text-lg;
   }
   & .nuxt-link-active .nav-item__title {
     @apply text-brand;
