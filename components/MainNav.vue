@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar sticky bottom-0 flex border-t select-none border-b-medium xs:flex-col lg:min-w-2xs">
+  <nav class="navbar sticky bottom-0 flex select-none xs:flex-col lg:min-w-2xs">
     <div class="navbar__list flex w-full xs:flex-col xs:py-2 xs:space-y-2">
       <NavItem to="/" icon="outline/home" class="navbar__item" exact>
         Home

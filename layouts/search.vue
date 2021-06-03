@@ -11,7 +11,7 @@
       <Nuxt class="page" />
       <AccountOverlay />
     </div>
-    <MainNav class="bg-b-light xs:order-first xs:border-t-0 xs:border-r sm:px-2" />
+    <MainNav class="xs:order-first sm:px-2" />
   </div>
 </template>
 
