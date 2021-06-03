@@ -77,12 +77,12 @@
   }
 
   .container {
-    @apply bg-b-dark relative flex-1 overflow-y-auto max-w-laptop;
+    @apply bg-b-dark relative flex-1 overflow-y-auto max-w-laptop border border-b-medium border-t-0;
   }
-  .container_theme_light {
+  .container--theme-light {
     @apply bg-white;
   }
-  .container_fluid {
+  .container--fluid {
     @apply h-full #{!important};
   }
 
