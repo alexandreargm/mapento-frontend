@@ -63,6 +63,12 @@
   ::placeholder {
     @apply text-t-dark-secondary #{!important};
   }
+
+  button, 
+  button:focus, 
+  button:active {
+    @apply outline-none;
+  }
 }
 
 @layer components {
