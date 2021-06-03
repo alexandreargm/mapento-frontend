@@ -1,11 +1,11 @@
 <template>
-  <div class="page-new-events">
+  <div class="new-events-notifications">
     <main class="space-y-6">
-      <div class="page-notifications__group-events">
+      <div class="new-events-notifications__group-events">
         <h1 class="md-section-heading px-4">
           From your groups
         </h1>
-        <FeedRow class="page-notifications__group-events-feed">
+        <FeedRow class="new-events-notifications__group-events-feed">
           <EventCard
             v-for="event in group_events"
             :key="`group_event_${event.id}`"
@@ -20,11 +20,11 @@
           />
         </FeedRow>
       </div>
-      <div class="page-notifications__group-events">
+      <div class="new-events-notifications__group-events">
         <h2 class="md-section-heading px-4">
           From your follows
         </h2>
-        <FeedList class="page-notifications__group-events-feed">
+        <FeedList class="new-events-notifications__group-events-feed">
           <EventCard
             v-for="event in follow_events"
             :key="`follow_event_${event.id}`"
@@ -48,7 +48,6 @@ import { extractObjectsOfType, filterObjectDuplicatesByKey, extractMultipleObjec
 import { UserGroupEventsQuery, UserUserEventsQuery } from '~/graphql/user/queries'
 
 export default {
-  layout: 'notifications',
   data () {
     return {
       follow_events: null,

@@ -1,5 +1,5 @@
 <template>
-  <div class="page-search">
+  <div>
     <header class="p-4 pt-0">
       <SearchBar />
     </header>
@@ -22,7 +22,6 @@
 import { AllCategoriesQuery } from '~/graphql/category/queries'
 
 export default {
-  layout: 'search',
   data () {
     return {
       categories: null

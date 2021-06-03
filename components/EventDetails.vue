@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="event-details__author flex p-4 items-center">
+    <div class="event-details__author flex py-4 px-6 items-center">
       <img :src="authorAvatar" :alt="`${authorName}'s profile picture`" class="event-details__author-avatar rounded-full w-16 h-16">
 
       <div class="event-details__author-details ml-4 text-sm">

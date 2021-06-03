@@ -4,7 +4,10 @@
       <Nuxt class="page" />
       <AccountOverlay />
     </div>
-    <MainNav class="bg-b-light xs:order-first sm:px-2" />
+    <div class="layout__right-column hidden sm:flex sm:flex-1" />
+    <div class="layout__left-column sm:flex sm:flex-1 xs:order-first sm:justify-end sm:px-2">
+      <MainNav />
+    </div>
   </div>
 </template>
 
@@ -14,4 +17,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.page {
+  @apply min-h-full;
+}
+</style>

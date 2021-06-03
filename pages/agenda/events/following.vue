@@ -58,7 +58,6 @@
 import { UserEventsQuery } from '~/graphql/user/queries'
 import { AllCategoriesQuery } from '~/graphql/category/queries'
 export default {
-  layout: 'agenda',
   data () {
     return {
       events: [],

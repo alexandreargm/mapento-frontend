@@ -1,7 +1,7 @@
 <template>
-  <div class="page-comments">
+  <div class="comments-notifications">
     <main class="space-y-6">
-      <div class="page-comments__event-comments">
+      <div class="comments-notifications__event-comments">
         <FeedList>
           <CommentCard
             v-for="comment in filteredComments"
@@ -23,7 +23,6 @@ import { extractMultipleObjectsOfType } from '~/plugins/feed-utils'
 import { UserEventsCommentsQuery, MeQuery } from '~/graphql/user/queries'
 
 export default {
-  layout: 'notifications',
   data () {
     return {
       comments: [],

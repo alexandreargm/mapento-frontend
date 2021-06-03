@@ -78,12 +78,13 @@
   .layout {
     @apply flex flex-col h-full;
     @screen xs {
-      @apply flex-row justify-center;
+      @apply flex-row;
     }
   }
 
   .container {
-    @apply bg-b-dark relative flex-1 overflow-y-auto max-w-laptop border border-b-medium border-t-0;
+    border: 1px solid;
+    @apply bg-b-dark relative overflow-y-auto w-full min-h-full max-w-tablet-landscape border-b-medium border-t-0;
   }
   .container--theme-light {
     @apply bg-white;

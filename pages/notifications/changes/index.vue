@@ -1,6 +1,6 @@
 <template>
-  <div class="page-notifications">
-    <div class="page-notifications__changes">
+  <div class="changes-notifications">
+    <div class="changes-notifications__changes">
       <FeedList>
         <EventUpdateCard
           v-for="event_update in event_updates"
@@ -20,7 +20,6 @@
 import { extractObjectsOfType } from '~/plugins/feed-utils'
 import { UserEventChangesQuery } from '~/graphql/user/queries'
 export default {
-  layout: 'notifications',
   data () {
     return {
       event_updates: null

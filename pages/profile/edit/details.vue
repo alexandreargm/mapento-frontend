@@ -42,7 +42,6 @@
 
 <script>
 export default {
-  layout: 'profileEdit',
   data () {
     return {
       name: 'Alexandre Argibay',
