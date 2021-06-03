@@ -1,43 +1,43 @@
 <template>
   <div class="page-following-events">
+    <FeedFilter>
+      <FeedFilterItem :label="orderByLabel">
+        <FormulateInput
+          v-model="orderByValue"
+          :options="orderByOptions"
+          type="radio"
+          label="Order by"
+        />
+      </FeedFilterItem>
+      <FeedFilterItem :label="categoryFilterLabel">
+        <FormulateInput
+          v-model="categoryFilterValue"
+          :options="categoryFilterOptions"
+          type="radio"
+          label="Filter by category"
+        />
+      </FeedFilterItem>
+      <FeedFilterItem :label="dateFilterLabel">
+        <FormulateInput
+          v-model="dateFilterValue"
+          :options="dateFilterOptions"
+          type="radio"
+          label="Show events that start in the next..."
+        />
+      </FeedFilterItem>
+      <FeedFilterItem :label="cityFilterLabel">
+        <FormulateInput
+          v-model="cityFilterValue"
+          :options="cityFilterOptions"
+          type="vue-select"
+          label="Show events located in"
+        />
+      </FeedFilterItem>
+    </FeedFilter>
     <FeedList
       noresults="You are not following any event"
       class="agenda-events-following"
     >
-      <FeedFilter>
-        <FeedFilterItem :label="orderByLabel">
-          <FormulateInput
-            v-model="orderByValue"
-            :options="orderByOptions"
-            type="radio"
-            label="Order by"
-          />
-        </FeedFilterItem>
-        <FeedFilterItem :label="categoryFilterLabel">
-          <FormulateInput
-            v-model="categoryFilterValue"
-            :options="categoryFilterOptions"
-            type="radio"
-            label="Filter by category"
-          />
-        </FeedFilterItem>
-        <FeedFilterItem :label="dateFilterLabel">
-          <FormulateInput
-            v-model="dateFilterValue"
-            :options="dateFilterOptions"
-            type="radio"
-            label="Show events that start in the next..."
-          />
-        </FeedFilterItem>
-        <FeedFilterItem :label="cityFilterLabel">
-          <FormulateInput
-            v-model="cityFilterValue"
-            :options="cityFilterOptions"
-            type="vue-select"
-            label="Show events located in"
-          />
-        </FeedFilterItem>
-      </FeedFilter>
       <EventCard
         v-for="event in events"
         :key="event.id"

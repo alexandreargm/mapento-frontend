@@ -1,21 +1,24 @@
 <template>
-  <article class="event-card bg-white cursor-pointer rounded-md p-4" @click="visitDetailsPage">
-    <div class="event-card__head flex items-center space-x-3 mb-1">
-      <div class="event-card__category text-xs">
-        {{ category }}
+  <article class="event-card" :class="getVariantStyle" @click="visitDetailsPage">
+    <div class="event-card__head">
+      <div class="event-card__over-title">
+        <span class="event-card__category">
+          {{ category }}
+        </span>
+
+        <span v-if="isPrivate" class="event-card__private">
+          Private
+        </span>
       </div>
-      <div v-if="isPrivate" class="event-card__private text-xs px-1 bg-b-dark font-semibold rounded-md">
-        Private
-      </div>
-    </div>
-    <div class="event-card__body mb-2">
       <div class="event-card__title font-semibold">
         {{ title }}
       </div>
     </div>
-    <div class="event-card__footer flex space-x-4 items-center">
-      <img v-if="authorAvatar" :src="authorAvatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
-      <div class="event-card__details text-t-light-secondary text-xs">
+
+    <div class="event-card__footer">
+      <img v-if="authorAvatar" :src="authorAvatar" class="event-card__author-avatar">
+
+      <div class="event-card__details">
         {{ authorComputed }} {{ date }}, {{ city }} · {{ participants }} participants
       </div>
     </div>
@@ -56,6 +59,10 @@ export default {
     isPrivate: {
       type: Boolean,
       default: false
+    },
+    variant: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -66,22 +73,80 @@ export default {
   computed: {
     authorComputed () {
       return this.authorName ? `${this.authorName} ·` : ''
+    },
+    getVariantStyle () {
+      const stylesEnum = {
+        condensed: 'event-card--condensed'
+      }
+      const getCardVariantClass = stylesEnum[this.variant]
+
+      if (!getCardVariantClass) { return '' }
+
+      return getCardVariantClass
     }
   },
   methods: {
     visitDetailsPage () {
       this.$router.push({ name: 'events-id', params: { id: this.eventId } })
-    },
-    toggleHighlight () {
-
     }
   }
 }
 </script>
 
-<style>
-.event-card__title {
-  max-height: 4.5rem;
-  @apply overflow-y-hidden;
+<style lang="scss">
+.event-card {
+  @apply bg-white cursor-pointer rounded-md p-4;
+  @screen sm {
+    @apply flex flex-row-reverse justify-end;
+  }
+
+  &__head {
+    @screen sm {
+      @apply ml-6;
+    }
+  }
+
+  &__category {
+    @apply text-xs;
+  }
+
+  &__private {
+    @apply ml-1 text-xs px-1 bg-b-dark font-semibold rounded-md;
+  }
+
+  &__title {
+    max-height: 4.5rem;
+    @apply overflow-y-hidden;
+  }
+
+  &__footer {
+    @apply flex items-center mt-2;
+    @screen sm {
+      @apply mt-0 w-64 flex-shrink-0;
+    }
+  }
+
+  &__author-avatar {
+    @apply  mr-4 w-8 h-8 flex-shrink-0 bg-brand rounded-full;
+  }
+
+  &__details {
+    @apply text-t-light-secondary text-xs;
+  }
+
+  &--condensed {
+  @apply w-56 flex-shrink-0 block;
+    .event-card {
+      &__head {
+        @apply m-0;
+      }
+      &__title {
+      height: 4.5rem;
+      }
+      &__footer {
+        @apply mt-2;
+      }
+    }
+  }
 }
 </style>

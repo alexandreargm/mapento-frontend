@@ -16,6 +16,7 @@
             :city="event.city"
             :category="event.category.name"
             :is-private="event.private"
+            variant="condensed"
           />
         </FeedRow>
       </div>

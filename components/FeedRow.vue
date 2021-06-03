@@ -24,14 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss">
-.feed-row {
-  & .event-card {
-    @apply w-56 flex-shrink-0;
-  }
-  & .event-card__title {
-    height: 4.5rem;
-  }
-}
-</style>
