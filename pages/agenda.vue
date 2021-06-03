@@ -26,7 +26,12 @@
 export default {
   created () {
     // Redirect user to first content since this page is empty
-    this.$router.replace('/agenda/events/following')
+    const isCurrentPathAgenda = this.$router.currentRoute.path === '/agenda'
+
+    if (isCurrentPathAgenda) {
+      // Redirect to relevant content
+      this.$router.replace('/agenda/events/following')
+    }
   }
 }
 </script>

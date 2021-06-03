@@ -23,7 +23,12 @@
 export default {
   created () {
     // Redirect user to first content since this page is empty
-    this.$router.replace('/profile/edit/details')
+    const isCurrentPathDesired = this.$router.currentRoute.path === '/profile'
+
+    if (isCurrentPathDesired) {
+      // Redirect to relevant content
+      this.$router.replace('/profile/edit/details')
+    }
   }
 }
 </script>

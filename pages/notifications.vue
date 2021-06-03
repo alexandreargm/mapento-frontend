@@ -26,7 +26,12 @@
 export default {
   created () {
     // Redirect user to first content since this page is empty
-    this.$router.replace('/notifications/events')
+    const isCurrentPathNotifications = this.$router.currentRoute.path === '/notifications'
+
+    if (isCurrentPathNotifications) {
+      // Redirect to relevant content
+      this.$router.replace('/notifications/events')
+    }
   }
 }
 </script>
