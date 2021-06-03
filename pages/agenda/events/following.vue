@@ -41,13 +41,14 @@
       <EventCard
         v-for="event in events"
         :key="event.id"
+        :event-id="event.id"
         :title="event.title"
         :date="event.date"
-        :author="event.event_owner.name"
-        :avatar="event.event_owner.avatar"
+        :author-name="event.event_owner.name"
+        :author-avatar="event.event_owner.avatar"
         :city="event.city"
         :category="event.category.name"
-        :isprivate="event.private"
+        :is-private="event.private"
       />
     </FeedList>
   </div>

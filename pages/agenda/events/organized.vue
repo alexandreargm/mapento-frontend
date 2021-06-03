@@ -3,11 +3,12 @@
     <EventCard
       v-for="event in events"
       :key="event.id"
+      :event-id="event.id"
       :title="event.title"
       :date="event.date"
       :city="event.city"
       :category="event.category.name"
-      :private="event.private"
+      :is-private="event.private"
     />
   </FeedList>
 </template>

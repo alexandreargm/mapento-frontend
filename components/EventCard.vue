@@ -1,10 +1,10 @@
 <template>
-  <article class="event-card bg-white rounded-md p-4">
+  <article class="event-card bg-white cursor-pointer rounded-md p-4" @click="visitDetailsPage">
     <div class="event-card__head flex items-center space-x-3 mb-1">
       <div class="event-card__category text-xs">
         {{ category }}
       </div>
-      <div v-if="isprivate" class="event-card__private text-xs px-1 bg-b-dark font-semibold rounded-md">
+      <div v-if="isPrivate" class="event-card__private text-xs px-1 bg-b-dark font-semibold rounded-md">
         Private
       </div>
     </div>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="event-card__footer flex space-x-4 items-center">
-      <img v-if="avatar" :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
+      <img v-if="authorAvatar" :src="authorAvatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
       <div class="event-card__details text-t-light-secondary text-xs">
         {{ authorComputed }} {{ date }}, {{ city }} · {{ participants }} participants
       </div>
@@ -25,6 +25,10 @@
 <script>
 export default {
   props: {
+    eventId: {
+      type: String,
+      required: true
+    },
     title: {
       type: String,
       default: ''
@@ -37,11 +41,11 @@ export default {
       type: String,
       default: ''
     },
-    author: {
+    authorName: {
       type: String,
       default: ''
     },
-    avatar: {
+    authorAvatar: {
       type: String,
       default: ''
     },
@@ -49,7 +53,7 @@ export default {
       type: String,
       default: ''
     },
-    isprivate: {
+    isPrivate: {
       type: Boolean,
       default: false
     }
@@ -61,7 +65,15 @@ export default {
   },
   computed: {
     authorComputed () {
-      return this.author ? `${this.author} ·` : ''
+      return this.authorName ? `${this.authorName} ·` : ''
+    }
+  },
+  methods: {
+    visitDetailsPage () {
+      this.$router.push({ name: 'events-id', params: { id: this.eventId } })
+    },
+    toggleHighlight () {
+
     }
   }
 }

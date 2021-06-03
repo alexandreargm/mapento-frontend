@@ -9,12 +9,13 @@
           <EventCard
             v-for="event in group_events"
             :key="`group_event_${event.id}`"
+            :event-id="event.id"
             :title="event.title"
-            :city="event.city"
             :date="event.date"
-            :private="event.private"
+            :author-avatar="event.event_owner.avatar"
+            :city="event.city"
             :category="event.category.name"
-            :avatar="event.event_owner.avatar"
+            :is-private="event.private"
           />
         </FeedRow>
       </div>
@@ -26,13 +27,14 @@
           <EventCard
             v-for="event in follow_events"
             :key="`follow_event_${event.id}`"
+            :event-id="event.id"
             :title="event.title"
-            :city="event.city"
             :date="event.date"
-            :private="event.private"
-            :author="event.event_owner.name"
+            :author-name="event.event_owner.name"
+            :author-avatar="event.event_owner.avatar"
+            :city="event.city"
             :category="event.category.name"
-            :avatar="event.event_owner.avatar"
+            :is-private="event.private"
           />
         </FeedList>
       </div>
