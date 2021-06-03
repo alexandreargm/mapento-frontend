@@ -58,12 +58,16 @@ module.exports = {
         '3xs': '12rem',
         '2xs': '16rem',
         tablet: '37.5rem', // 600px
+        'tablet-landscape': '48rem', // 768
         laptop: '62rem' // 992px
       },
       fontSize: {
         '4xs': '0.5625rem', // 9px
         '3xs': '0.625rem', // 10px
         '2xs': '0.6875rem' // 11px
+      },
+      lineHeight: {
+        minimal: 1.15
       },
       width: {
         72: '18rem',
