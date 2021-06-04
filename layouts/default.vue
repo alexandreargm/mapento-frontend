@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div class="container">
+    <div class="container flex-1 sm:flex-initial">
       <Nuxt class="page" />
       <AccountOverlay />
     </div>
