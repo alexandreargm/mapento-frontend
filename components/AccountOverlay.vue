@@ -56,6 +56,6 @@ export default {
 
 <style lang="postcss">
   .account-overlay__item {
-    @apply h-12 rounded-md;
+    @apply h-12 rounded-md text-brand;
   }
 </style>
