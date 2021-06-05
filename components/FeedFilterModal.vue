@@ -14,13 +14,13 @@ export default {}
   @apply fixed left-0 bottom-0 z-30 w-full;
   @screen xs {
     @apply min-w-sm max-w-md bottom-auto;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
   }
   &__inner {
-    min-height: 80vh;
     max-height: 80vh;
+    min-height: 80vh;
     @screen xs {
       min-height: auto;
     }

@@ -70,15 +70,15 @@ export default {
     @apply rounded-md bg-b-light fixed left-0 bottom-0 z-30 w-full;
     @screen xs {
       @apply min-w-sm max-w-md bottom-auto;
-      top: 50%;
       left: 50%;
+      top: 50%;
       transform: translate(-50%, -50%);
     }
   }
 
   &__modal-inner {
-    min-height: 80vh;
     max-height: 80vh;
+    min-height: 80vh;
     @screen xs {
       min-height: auto;
     }
@@ -89,13 +89,13 @@ export default {
   }
 
   &__modal-overlay {
-    content: "";
-    top: 0;
-    left: 0;
     background: rgba(0, 0, 0, 0.2);
-    position: fixed;
-    width: 9999px;
+    content: "";
     height: 9999px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 9999px;
     z-index: 10;
   }
 }
