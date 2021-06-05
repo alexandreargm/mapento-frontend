@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar sticky bottom-0 flex select-none xs:flex-col lg:min-w-2xs">
+  <nav class="navbar sticky bottom-0 flex select-none xs:flex-col md:min-w-3xs lg:min-w-2xs">
     <div class="navbar__list flex w-full xs:flex-col xs:py-2 xs:space-y-2">
       <NavItem to="/" icon="outline/home" class="navbar__item" exact>
         Home
@@ -53,13 +53,13 @@ export default {
       @apply px-4 justify-start;
     }
     & .nav-item__icon {
-      width: 28px;
       height: 28px;
+      width: 28px;
     }
   }
 }
 
-@screen lg {
+@screen md {
   .navbar__item {
     & .nav-item {
       & .nav-item__title {
