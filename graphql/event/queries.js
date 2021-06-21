@@ -21,6 +21,11 @@ export const EVENT_DETAILS_QUERY = gql`
       city
       participant_count
       description
+      private
+      category {
+        id
+        name
+      }
       event_owner {
         id
         name
