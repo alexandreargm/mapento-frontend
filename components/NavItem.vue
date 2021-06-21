@@ -7,7 +7,7 @@
       :exact="exact"
       :class="handleActiveLink"
     >
-      <svg-icon v-if="icon" class="nav-item__icon stroke-1" :name="icon" />
+      <svg-icon v-if="icon" class="nav-item__icon stroke-1 svg-24" :name="icon" />
       <span class="nav-item__title">
         <slot />
       </span>
@@ -18,7 +18,7 @@
       :class="handleActiveLink"
       @click="$emit('click')"
     >
-      <svg-icon v-if="icon" class="nav-item__icon stroke-1" :name="icon" />
+      <svg-icon v-if="icon" class="nav-item__icon stroke-1 svg-24" :name="icon" />
       <span class="nav-item__title">
         <slot />
       </span>
