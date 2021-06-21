@@ -1,9 +1,9 @@
 <template>
   <DetailsPage>
-    <DetailsPageHeader />
+    <DetailsPageHeader class="details-page__header" />
     <EventDetails
       v-if="event"
-      class="event-page__event-details"
+      class="details-page__section"
       :title="event.title"
       :meetup-point="event.meetup_point"
       :created-at="event.created_at"
@@ -16,6 +16,8 @@
       :author-name="event.event_owner.name"
       :author-avatar="event.event_owner.avatar"
       :comments="event.comments"
+      :is-private="event.private"
+      :category="event.category.name"
     />
   </DetailsPage>
 </template>
@@ -44,7 +46,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

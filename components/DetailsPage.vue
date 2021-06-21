@@ -1,5 +1,5 @@
 <template>
-  <main class="details-page bg-b-light py-4 sm:px-4">
+  <main class="details-page">
     <slot />
   </main>
 </template>
