@@ -33,40 +33,40 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
 
 .navbar__item {
   @apply flex-1;
-  & .nav-item {
-    @apply flex-1;
-      & .nav-item__title {
-        @apply hidden tracking-tight font-semibold;
-      }
-  }
-}
 
-@screen xs {
-  .navbar__item {
+  @screen xs {
     @apply flex-none;
-    & .nav-item {
+  }
+
+  .nav-item {
+    @apply flex-1;
+
+    @screen xs {
       @apply flex-none;
       @apply px-4 justify-start;
     }
-    & .nav-item__icon {
-      height: 28px;
-      width: 28px;
-    }
-  }
-}
 
-@screen md {
-  .navbar__item {
-    & .nav-item {
-      & .nav-item__title {
-        @apply block;
+    &__title {
+      @apply hidden tracking-tight font-semibold;
+
+       @screen md {
+         @apply block;
+      }
+    }
+
+    &__icon {
+      height: 24px;
+      width: 24px;
+
+      @screen xs {
+        height: 28px;
+        width: 28px;
       }
     }
   }
 }
-
 </style>
