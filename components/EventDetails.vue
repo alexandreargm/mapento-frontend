@@ -1,73 +1,93 @@
 <template>
-  <div class="event-details">
+  <section class="event-details bg-b-light">
     <div class="event-details__header p-4">
       <div class="event-details__overtitle text-lg">
-        <span class="event-details__city">
-          {{ city }}
-        </span>
-        ·
-        <span class="event-details__date">
-          {{ date }}
+        <span class="event-details__category">{{ category }}</span>
+        <span v-if="isPrivate" class="event-details__is-private ml-1 px-1 border-1 border-b-medium font-semibold rounded-md">
+          Private
         </span>
       </div>
 
-      <div class="event-details__title text-4xl font-extrabold leading-minimal mt-1">
+      <h1 class="event-details__title text-4xl md:text-5xl font-extrabold leading-minimal mt-2">
         {{ title }}
-      </div>
-    </div>
-
-    <div class="event-details__author flex py-4 px-6 items-center">
-      <img :src="authorAvatar" :alt="`${authorName}'s profile picture`" class="event-details__author-avatar rounded-full w-16 h-16">
-
-      <div class="event-details__author-details ml-4 text-sm">
-        <div class="event-details__author-body">
-          <span class="event-details__author-name font-bold">
-            {{ authorName }}
-          </span>
-          ·
-          <span class="event-details__event-created-at">
-            {{ createdAt }}
-          </span>
+      </h1>
+      <div class="event-details__subtitle text-xl text-t-light-body mt-2 flex">
+        <div class="event-details__city">
+          {{ city }}
         </div>
 
-        <div class="event-details__author-footer text-t-dark-secondary">
-          Event administrator
+        <div class="event-details__text-separator">
+          &nbsp;·&nbsp;
+        </div>
+
+        <div class="event-details__date">
+          {{ date }}
         </div>
       </div>
     </div>
 
-    <span class="event-details__description block leading-relaxed whitespace-pre-wrap">{{ description }}</span>
+    <div class="event-details__body">
+      <div class="event-details__post px-4 sm:px-8 py-8">
+        <div class="event-details__post-details post-details flex items-center">
+          <img :src="authorAvatar" :alt="`${authorName}'s profile picture`" class="post-details__author-avatar rounded-full w-16 h-16">
 
-    <div class="event-details__requisites">
-      <div class="event-details__requisites-title">
-        Requisites
+          <div class="post-details__body ml-4 ">
+            <div class="post-details__author-name text-base font-bold">
+              {{ authorName }}
+            </div>
+
+            <div class="post-details__event-created-at mt-1 text-sm text-t-light-secondary">
+              Posted {{ createdAt }}
+            </div>
+          </div>
+        </div>
+
+        <span class="event-details__event-description block leading-relaxed whitespace-pre-wrap mt-6 text-lg">{{ description }}</span>
+      </div>
+
+      <section class="event-details__section">
+        <h1 class="event-details__section-title">
+          Requisites
+        </h1>
+      </section>
+
+      <section class="event-details__section">
+        <h1 class="event-details__section-title">
+          Meetup point
+        </h1>
+      </section>
+
+      <div class="event-details__cards p-4 grid gap-3 sm:grid-flow-col">
+        <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
+          <span class="event-details__card-title flex font-semibold">
+            <svg-icon name="solid/users" class="mr-2 svg-24" />
+            <span class="event-details__card-text text-t-light">Participants ({{ participantCount }})</span>
+          </span>
+
+          <svg-icon name="solid/chevron-down" />
+        </div>
+
+        <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
+          <span class="event-details__card-title flex font-semibold">
+            <svg-icon name="solid/refresh" class="mr-2 svg-24" />
+            <span class="event-details__card-text text-t-light">Changes (0)</span>
+          </span>
+
+          <svg-icon name="solid/chevron-down" />
+        </div>
       </div>
     </div>
 
-    <div class="event-details__meetup-point">
-      <div class="event-details__meetup-point-title">
-        Meetup point
-      </div>
-    </div>
-
-    <div class="event-details__event-updates">
-      <div class="event-details__event-updates-title">
-        Changes
-      </div>
-    </div>
-
-    <div class="event-details__footer p-4">
-      <div class="event-details__participant-count font-semibold text-brand">
-        There are {{ participantCount }} participants right now
-      </div>
-
-      <div class="event-details__actions pt-6">
+    <div class="event-details__footer py-6">
+      <div class="event-details__actions px-4">
         <button class="event-details__follow-event btn">
-          Participate
+          PARTICIPATE
         </button>
       </div>
     </div>
-  </div>
+    </div>
+    </DetailsPage>
+  </section>
 </template>
 
 <script>
@@ -105,6 +125,14 @@ export default {
       type: String,
       required: true
     },
+    isPrivate: {
+      type: Boolean,
+      default: false
+    },
+    category: {
+      type: String,
+      required: true
+    },
     participantCount: {
       type: Number,
       required: true
@@ -126,15 +154,17 @@ export default {
 </script>
 
 <style lang="scss">
-.event-details__requisites-title,
-.event-details__meetup-point-title,
-.event-details__event-updates-title {
-  @apply font-semibold;
-}
-.event-details__requisites,
-.event-details__meetup-point,
-.event-details__event-updates,
-.event-details__description {
-  @apply px-4 py-6;
+.event-details {
+  &__section {
+    @apply p-4;
+
+    &-title {
+      @apply font-semibold text-t-dark mb-3 flex items-center;
+    }
+
+    &-icon {
+      @apply -ml-1 mr-2;
+    }
+  }
 }
 </style>
