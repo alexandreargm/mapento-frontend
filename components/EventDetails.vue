@@ -21,7 +21,7 @@
         </div>
 
         <div class="event-details__date">
-          {{ date }}
+          {{ $DateTime.fromSQL(date).toLocaleString($DateTime.DATE_HUGE) }}
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="post-details__event-created-at mt-1 text-sm text-t-light-secondary">
-              Posted {{ createdAt }}
+              Posted {{ $DateTime.fromSQL(createdAt).toRelative() }}
             </div>
           </div>
         </div>
@@ -60,20 +60,20 @@
       <div class="event-details__cards p-4 grid gap-3 sm:grid-flow-col">
         <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
           <span class="event-details__card-title flex font-semibold">
-            <svg-icon name="solid/users" class="mr-2 svg-24" />
-            <span class="event-details__card-text text-t-light">Participants ({{ participantCount }})</span>
+            <svg-icon name="solid/users" class="svg-24" />
+            <span class="event-details__card-text text-t-light ml-2">Participants ({{ participantCount }})</span>
           </span>
 
-          <svg-icon name="solid/chevron-down" />
+          <svg-icon name="solid/chevron-down" class="svg-24" />
         </div>
 
         <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
           <span class="event-details__card-title flex font-semibold">
-            <svg-icon name="solid/refresh" class="mr-2 svg-24" />
-            <span class="event-details__card-text text-t-light">Changes (0)</span>
+            <svg-icon name="solid/refresh" class="svg-24" />
+            <span class="event-details__card-text text-t-light ml-2">Changes (0)</span>
           </span>
 
-          <svg-icon name="solid/chevron-down" />
+          <svg-icon name="solid/chevron-down" class="svg-24" />
         </div>
       </div>
     </div>
