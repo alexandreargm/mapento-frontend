@@ -19,7 +19,7 @@
       <img v-if="authorAvatar" :src="authorAvatar" class="event-card__author-avatar">
 
       <div class="event-card__details">
-        {{ authorComputed }} {{ date }}, {{ city }} · {{ participants }} participants
+        {{ authorComputed }} {{ city }} · {{ $DateTime.fromSQL(date).toLocaleString($DateTime.DATE_MED_WITH_WEEKDAY) }} · {{ participants }} participants
       </div>
     </div>
   </article>
@@ -136,15 +136,22 @@ export default {
 
   &--condensed {
   @apply w-56 flex-shrink-0 block;
+
     .event-card {
       &__head {
         @apply m-0;
       }
-      &__title {
-      height: 4.5rem;
+
+      &__author-avatar {
+        margin-top: 2px;
       }
+
+      &__title {
+        height: 4.5rem;
+      }
+
       &__footer {
-        @apply mt-2;
+        @apply mt-2 w-auto break-words items-start;
       }
     }
   }
