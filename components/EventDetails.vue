@@ -3,9 +3,9 @@
     <div class="event-details__header p-4">
       <div class="event-details__overtitle text-lg">
         <span class="event-details__category">{{ category }}</span>
-        <span v-if="isPrivate" class="event-details__is-private ml-1 px-1 border-1 border-b-medium font-semibold rounded-md">
+        <Tag v-if="isPrivate" class="event-details__is-private ml-1" :variant="['outline', 'semibold']">
           Private
-        </span>
+        </Tag>
       </div>
 
       <h1 class="event-details__title text-4xl md:text-5xl font-extrabold leading-minimal mt-2">
@@ -81,9 +81,9 @@
 
     <div class="event-details__footer py-6">
       <div class="event-details__actions px-4">
-        <button class="event-details__follow-event btn">
+        <Button class="event-details__follow-event">
           PARTICIPATE
-        </button>
+        </Button>
       </div>
     </div>
     </div>

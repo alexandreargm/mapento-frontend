@@ -1,14 +1,14 @@
 <template>
-  <article class="event-card" :class="getVariantStyle" @click="visitDetailsPage">
-    <div class="event-card__head">
+  <article class="event-card" :class="getComponentVariant" @click="visitDetailsPage">
+    <div class="event-card__body">
       <div class="event-card__over-title">
         <span class="event-card__category">
           {{ category }}
         </span>
 
-        <span v-if="isPrivate" class="event-card__private">
+        <Tag v-if="isPrivate" class="event-card__private" :variant="['outline', 'semibold', 'xs']">
           Private
-        </span>
+        </Tag>
       </div>
       <div class="event-card__title font-semibold">
         {{ title }}
@@ -83,15 +83,14 @@ export default {
     dateComputed () {
       return getMidDate(this.date)
     },
-    getVariantStyle () {
-      const stylesEnum = {
-        condensed: 'event-card--condensed'
+    getComponentVariant () {
+      const withPrefix = variant => `event-card--${variant}`
+
+      if (typeof this.variant === 'string') {
+        return withPrefix(this.variant)
       }
-      const getCardVariantClass = stylesEnum[this.variant]
 
-      if (!getCardVariantClass) { return '' }
-
-      return getCardVariantClass
+      return this.variant.map(variant => withPrefix(variant))
     }
   },
   methods: {
@@ -109,7 +108,7 @@ export default {
     @apply flex flex-row-reverse justify-end;
   }
 
-  &__head {
+  &__body {
     @screen sm {
       @apply ml-6;
     }
@@ -120,7 +119,7 @@ export default {
   }
 
   &__private {
-    @apply ml-1 text-xs px-1 bg-b-dark font-semibold rounded-md;
+    @apply ml-1 ;
   }
 
   &__title {
@@ -151,7 +150,8 @@ export default {
   @apply w-56 flex-shrink-0 block;
 
     .event-card {
-      &__head {
+      &__body {
+        height: 6rem;
         @apply m-0;
       }
 
@@ -159,12 +159,8 @@ export default {
         margin-top: 2px;
       }
 
-      &__title {
-        height: 4.5rem;
-      }
-
       &__footer {
-        @apply mt-2 w-auto break-words items-start;
+        @apply mt-4 w-auto break-words items-start;
       }
     }
   }
