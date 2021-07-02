@@ -167,13 +167,13 @@
     Typography
   */
   .sm-section-heading {
-    @apply font-extrabold text-lg leading-8;
+    @apply font-extrabold text-lg leading-8 pt-2;
   }
   .md-section-heading {
-    @apply font-extrabold text-2xl leading-10;
+    @apply font-extrabold text-2xl leading-10 pt-2;
   }
   .lg-section-heading {
-    @apply font-extrabold text-2xl leading-10;
+    @apply font-extrabold text-2xl leading-10 pt-2;
   }
 }
 
