@@ -11,18 +11,19 @@
       <h1 class="event-details__title text-4xl md:text-5xl font-extrabold leading-minimal mt-2">
         {{ title }}
       </h1>
-      <div class="event-details__subtitle text-xl text-t-light-body mt-2 flex">
-        <div class="event-details__city">
+
+      <div class="event-details__subtitle text-xl text-t-light-body mt-2">
+        <span class="event-details__city">
           {{ city }}
-        </div>
+        </span>
 
-        <div class="event-details__text-separator">
-          &nbsp;·&nbsp;
-        </div>
+        <span class="event-details__text-separator">
+          ·
+        </span>
 
-        <div class="event-details__date">
-          {{ $DateTime.fromSQL(date).toLocaleString($DateTime.DATE_HUGE) }}
-        </div>
+        <span class="event-details__date">
+          {{ dateComputed }}
+        </span>
       </div>
     </div>
 
@@ -32,12 +33,12 @@
           <img :src="authorAvatar" :alt="`${authorName}'s profile picture`" class="post-details__author-avatar rounded-full w-16 h-16">
 
           <div class="post-details__body ml-4 ">
-            <div class="post-details__author-name text-base font-bold">
+            <div class="post-details__author-name text-lg font-semibold">
               {{ authorName }}
             </div>
 
             <div class="post-details__event-created-at mt-1 text-sm text-t-light-secondary">
-              Posted {{ $DateTime.fromSQL(createdAt).toRelative() }}
+              Posted {{ posted }}
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@
         <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
           <span class="event-details__card-title flex font-semibold">
             <svg-icon name="solid/users" class="svg-24" />
-            <span class="event-details__card-text text-t-light ml-2">Participants ({{ participantCount }})</span>
+            <span class="event-details__card-text text-t-light ml-3">Participants ({{ participantCount }})</span>
           </span>
 
           <svg-icon name="solid/chevron-down" class="svg-24" />
@@ -70,7 +71,7 @@
         <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
           <span class="event-details__card-title flex font-semibold">
             <svg-icon name="solid/refresh" class="svg-24" />
-            <span class="event-details__card-text text-t-light ml-2">Changes (0)</span>
+            <span class="event-details__card-text text-t-light ml-3">Changes (0)</span>
           </span>
 
           <svg-icon name="solid/chevron-down" class="svg-24" />
@@ -91,6 +92,8 @@
 </template>
 
 <script>
+import { getLongDate, getRelativeDate } from '~/plugins/luxon'
+
 export default {
   props: {
     title: {
@@ -149,6 +152,14 @@ export default {
       type: Array,
       required: true
     }
+  },
+  computed: {
+    dateComputed () {
+      return getLongDate(this.date)
+    },
+    posted () {
+      return getRelativeDate(this.createdAt)
+    }
   }
 }
 </script>
@@ -159,11 +170,7 @@ export default {
     @apply p-4;
 
     &-title {
-      @apply font-semibold text-t-dark mb-3 flex items-center;
-    }
-
-    &-icon {
-      @apply -ml-1 mr-2;
+      @apply font-semibold text-t-dark mb-3 flex items-center text-lg;
     }
   }
 }

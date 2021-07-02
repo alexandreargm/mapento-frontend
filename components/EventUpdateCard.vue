@@ -1,16 +1,20 @@
 <template>
-  <article class="event-update-card bg-white rounded-md p-4 flex space-x-4">
+  <article class="event-update-card bg-white rounded-md p-4 flex">
     <img v-if="avatar" :src="avatar" class="event-card__user-avatar w-8 h-8 flex-shrink-0 bg-brand rounded-full">
-    <div class="event-update-card__body space-y-1">
-      <div class="event-update-card__event-title font-semibold text-xs leading-tight">
+    <div class="event-update-card__body ml-4 space-y-1">
+      <div class="event-update-card__event-title font-semibold text-sm leading-tight">
         {{ title }}
       </div>
       <div class="event-update-card__publication text-t-dark-secondary text-xs">
-        <span class="event-update-card__author">{{ author }}</span>
-        ·
-        <span class="event-update-card__date">{{ date }}</span>
+        <span class="event-update-card__author">
+          {{ author }},
+        </span>
+
+        <span class="event-update-card__date">
+          {{ dateComputed }}
+        </span>
       </div>
-      <div class="event-update-card__changes text-sm">
+      <div class="event-update-card__changes">
         {{ computedTypeChanges }}
       </div>
     </div>
@@ -18,6 +22,8 @@
 </template>
 
 <script>
+import { getRelativeDate } from '~/plugins/luxon'
+
 export default {
   props: {
     title: {
@@ -48,6 +54,9 @@ export default {
       const renamedChangeTypes = this.changes.map(change => newChangeTypeNames[change.type])
 
       return renamedChangeTypes.join(', ')
+    },
+    dateComputed () {
+      return getRelativeDate(this.date)
     }
   }
 

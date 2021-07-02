@@ -5,11 +5,11 @@
     </div>
     <div class="group-card__content p-4 xs:pl-6">
       <div class="group-card__head flex flex-wrap mb-1">
-        <div class="group-card__category text-xs mr-3">
+        <div class="group-card__category text-sm mr-3">
           {{ category }}
         </div>
         <div v-if="isprivate" class="group-card__private flex">
-          <span class="group-card__private-title px-1 bg-b-dark text-xs font-semibold rounded-md">
+          <span class="group-card__private-title px-1 bg-b-dark text-sm font-semibold rounded-md">
             Private
           </span>
         </div>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="group-card__footer">
-        <span class="group-card__city text-t-dark-secondary text-xs">
+        <span class="group-card__city text-t-dark-secondary text-sm">
           {{ city }}
         </span>
       </div>

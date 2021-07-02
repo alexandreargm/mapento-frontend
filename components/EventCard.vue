@@ -19,13 +19,19 @@
       <img v-if="authorAvatar" :src="authorAvatar" class="event-card__author-avatar">
 
       <div class="event-card__details">
-        {{ authorComputed }} {{ city }} · {{ $DateTime.fromSQL(date).toLocaleString($DateTime.DATE_MED_WITH_WEEKDAY) }} · {{ participants }} participants
+        <span v-if="authorName" class="event-card__author">
+          {{ authorName }}
+        </span>
+
+        {{ city }} &bull; {{ dateComputed }} &bull; {{ participants }} participants
       </div>
     </div>
   </article>
 </template>
 
 <script>
+import { getMidDate } from '~/plugins/luxon'
+
 export default {
   props: {
     eventId: {
@@ -72,7 +78,10 @@ export default {
   },
   computed: {
     authorComputed () {
-      return this.authorName ? `${this.authorName} ·` : ''
+      return this.authorName ? `${this.authorName} •` : ''
+    },
+    dateComputed () {
+      return getMidDate(this.date)
     },
     getVariantStyle () {
       const stylesEnum = {
@@ -107,7 +116,7 @@ export default {
   }
 
   &__category {
-    @apply text-xs;
+    @apply text-sm;
   }
 
   &__private {
@@ -128,6 +137,10 @@ export default {
 
   &__author-avatar {
     @apply  mr-4 w-8 h-8 flex-shrink-0 bg-brand rounded-full;
+  }
+
+  &__author {
+    @apply text-t-dark mr-1;
   }
 
   &__details {
