@@ -21,7 +21,7 @@ module.exports = {
     },
     colors: {
       'b-light': '#ffffff',
-      'b-light-secondary': '#F7F7F8',
+      'b-light-secondary': '#efeff1',
       'b-dark': '#e7eaee',
       'b-medium': '#DCDCDC',
       't-light': '#212121',
