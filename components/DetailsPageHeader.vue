@@ -1,7 +1,7 @@
 <template>
   <header class="details-page-header bg-b-light flex items-center pt-4">
     <button class="flex items-center h-16 w-16 px-4" @click="routerGoBack">
-      <svg-icon name="solid/arrow-left" class="svg-32" />
+      <Icon name="solid/arrow-left" variant="xl" />
     </button>
   </header>
 </template>

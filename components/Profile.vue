@@ -16,7 +16,7 @@
         Follow
       </button>
       <button class="profile__alert btn btn--icon btn--secondary">
-        <svg-icon name="outline/bell" />
+        <Icon name="outline/bell" />
       </button>
       <button class="profile__edit btn btn--secondary">
         Edit

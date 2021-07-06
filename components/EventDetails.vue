@@ -61,20 +61,20 @@
       <div class="event-details__cards p-4 grid gap-3 sm:grid-flow-col">
         <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
           <span class="event-details__card-title flex font-semibold">
-            <svg-icon name="solid/users" class="svg-24" />
+            <Icon name="solid/users" />
             <span class="event-details__card-text text-t-light ml-3">Participants ({{ participantCount }})</span>
           </span>
 
-          <svg-icon name="solid/chevron-down" class="svg-24" />
+          <Icon name="solid/chevron-down" />
         </div>
 
         <div class="event-details__card flex justify-between items-center rounded-md bg-b-light-secondary text-t-light-secondary p-4">
           <span class="event-details__card-title flex font-semibold">
-            <svg-icon name="solid/refresh" class="svg-24" />
+            <Icon name="solid/refresh" />
             <span class="event-details__card-text text-t-light ml-3">Changes (0)</span>
           </span>
 
-          <svg-icon name="solid/chevron-down" class="svg-24" />
+          <Icon name="solid/chevron-down" />
         </div>
       </div>
     </div>

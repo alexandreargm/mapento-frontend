@@ -2,9 +2,10 @@
   <div class="feed-filter-item">
     <button class="feed-filter-item__toggle" @click="openModal">
       {{ label }}
-      <svg-icon
-        class="feed-filter-item__toggle-icon svg-16"
+      <Icon
+        class="feed-filter-item__toggle-icon"
         name="solid/chevron-down"
+        variant="sm"
       />
     </button>
     <div v-show="isOpen" class="feed-filter-item__modal">
@@ -62,11 +63,10 @@ export default {
 .feed-filter-item {
   &__toggle {
     text-transform: capitalize;
-    @apply flex items-center font-semibold text-xs text-brand px-3 h-10 rounded-md cursor-pointer select-none whitespace-no-wrap;
+    @apply flex items-center font-semibold text-sm text-brand px-3 h-10 rounded-md cursor-pointer select-none whitespace-no-wrap;
   }
 
   &__modal {
-    $gap-width: 16px;
     @apply rounded-md bg-b-light fixed left-0 bottom-0 z-30 w-full;
     @screen xs {
       @apply min-w-sm max-w-md bottom-auto;
