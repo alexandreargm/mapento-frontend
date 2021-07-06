@@ -16,12 +16,12 @@
         </div>
         <div class="feed-filter-item__actions flex space-x-4 justify-end">
           <slot name="actions" />
-          <button class="btn btn--simple" @click="closeModal">
+          <Button :variant="['secondary','simple']" @click="closeModal">
             Cancel
-          </button>
-          <button class="btn" @click="closeModal">
+          </Button>
+          <Button variant="primary" @click="closeModal">
             Apply
-          </button>
+          </Button>
         </div>
       </div>
     </div>
