@@ -68,12 +68,6 @@
   ::placeholder {
     @apply text-t-dark-secondary #{!important};
   }
-
-  button, 
-  button:focus, 
-  button:active {
-    @apply outline-none;
-  }
 }
 
 @layer components {
@@ -121,44 +115,5 @@
   }
   .lg-section-heading {
     @apply font-extrabold text-2xl leading-10 pt-2;
-  }
-}
-
-@layer utilities {
-  @variants responsive {
-    .svg {
-      &-14 {
-        height: 14px;
-        width: 14px;
-      }
-      &-16 {
-        height: 16px;
-        width: 16px;
-      }
-      &-18 {
-        height: 18px;
-        width: 18px;
-      }
-      &-20 {
-        height: 20px;
-        width: 20px;
-      }
-      &-24 {
-        height: 24px;
-        width: 24px;
-      }
-      &-28 {
-        height: 28px;
-        width: 28px;
-      }
-      &-32 {
-        height: 32px;
-        width: 32px;
-      }
-      &-36 {
-        height: 36px;
-        width: 36px;
-      }
-    }
   }
 }
