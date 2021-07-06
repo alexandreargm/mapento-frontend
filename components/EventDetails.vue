@@ -81,7 +81,7 @@
 
     <div class="event-details__footer py-6">
       <div class="event-details__actions px-4">
-        <Button class="event-details__follow-event">
+        <Button class="event-details__follow-event" :variant="['primary']">
           PARTICIPATE
         </Button>
       </div>
