@@ -78,59 +78,6 @@
 
 @layer components {
   /*
-    Buttons
-  */
-  .btn {
-    @apply rounded-full bg-brand h-12 text-white px-6 font-semibold select-none block;
-
-    &:disabled {
-      @apply bg-b-medium text-t-dark;
-      & * {
-        @apply text-t-dark;
-      }
-    }
-
-    & * {
-      @apply text-white;
-    }
-
-    &--sm {
-      @apply h-6 text-xs;
-    }
-
-    &--md {
-      @apply h-8;
-    }
-
-    &--lg {
-      @apply h-10 text-base;
-    }
-
-    &--rounded {
-      @apply rounded-full;
-    }
-
-    &--secondary {
-      @apply bg-b-dark text-t-dark-secondary;
-      & * {
-        @apply text-t-dark-secondary;
-      }
-    }
-
-    &--outline {
-      @apply bg-opacity-0 border-solid border-2 text-t-dark border-b-medium;
-    }
-
-    &--simple {
-      @apply bg-opacity-0 text-brand;
-    }
-
-    &--icon {
-      @apply px-3 stroke-2;
-    }
-  }
-
-  /*
     Forms
   */
   .label {
