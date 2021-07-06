@@ -31,6 +31,7 @@
 
 <script>
 import { getMidDate } from '~/plugins/luxon'
+import { variantPropDefinition, getVariantString } from '~/plugins/component-utils'
 
 export default {
   props: {
@@ -66,10 +67,7 @@ export default {
       type: Boolean,
       default: false
     },
-    variant: {
-      type: String,
-      default: ''
-    }
+    variant: variantPropDefinition
   },
   data () {
     return {
@@ -84,13 +82,7 @@ export default {
       return getMidDate(this.date)
     },
     getComponentVariant () {
-      const withPrefix = variant => `event-card--${variant}`
-
-      if (typeof this.variant === 'string') {
-        return withPrefix(this.variant)
-      }
-
-      return this.variant.map(variant => withPrefix(variant))
+      return getVariantString('event-card', this.variant)
     }
   },
   methods: {
@@ -160,7 +152,7 @@ export default {
       }
 
       &__footer {
-        @apply mt-4 w-auto break-words items-start;
+        @apply mt-2 w-auto break-words items-start;
       }
     }
   }
