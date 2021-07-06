@@ -5,22 +5,15 @@
 </template>
 
 <script>
+import { variantPropDefinition, getVariantString } from '~/plugins/component-utils'
+
 export default {
   props: {
-    variant: {
-      type: [Array, String],
-      default: ''
-    }
+    variant: variantPropDefinition
   },
   computed: {
     getComponentVariant () {
-      const withPrefix = variant => `tag--${variant}`
-
-      if (typeof this.variant === 'string') {
-        return withPrefix(this.variant)
-      }
-
-      return this.variant.map(variant => withPrefix(variant))
+      return getVariantString('tag', this.variant)
     }
   }
 }
