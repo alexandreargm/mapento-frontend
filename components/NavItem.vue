@@ -7,7 +7,7 @@
       :exact="exact"
       :class="handleActiveLink"
     >
-      <svg-icon v-if="icon" class="nav-item__icon stroke-1 svg-24" :name="icon" />
+      <Icon v-if="icon" class="nav-item__icon" :name="icon" />
       <span class="nav-item__title">
         <slot />
       </span>
@@ -18,7 +18,7 @@
       :class="handleActiveLink"
       @click="$emit('click')"
     >
-      <svg-icon v-if="icon" class="nav-item__icon stroke-1 svg-24" :name="icon" />
+      <Icon v-if="icon" class="nav-item__icon" :name="icon" />
       <span class="nav-item__title">
         <slot />
       </span>
@@ -65,7 +65,20 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="scss">
+.nav-item {
+  @apply font-semibold;
+}
+
+.nav-item:hover {
+  @apply bg-b-dark;
+
+  &__icon,
+  &__title {
+    @apply text-brand
+  }
+}
+
 .nuxt-link-exact-active, .nav-item--active {
   @apply text-brand;
   & * {
@@ -73,12 +86,4 @@ export default {
   }
 }
 
-@media (hover: hover) {
-  .nav-item:hover {
-    & .nav-item__icon, & .nav-item__title {
-      @apply text-brand
-    }
-    @apply bg-b-dark
-  }
-}
 </style>

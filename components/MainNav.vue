@@ -51,7 +51,7 @@ export default {
     }
 
     &__title {
-      @apply hidden tracking-tight font-semibold;
+      @apply hidden tracking-tight;
 
        @screen md {
          @apply block;
