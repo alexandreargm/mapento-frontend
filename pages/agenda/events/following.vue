@@ -25,7 +25,10 @@
           label="Show events that start in the next..."
         />
       </FeedFilterItem>
-      <FeedFilterItem :label="cityFilterLabel">
+      <FeedFilterItem
+        :label="cityFilterLabel"
+        variant="no-scroll"
+      >
         <FormulateInput
           v-model="cityFilterValue"
           :options="cityFilterOptions"

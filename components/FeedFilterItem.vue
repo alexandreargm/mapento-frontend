@@ -1,5 +1,5 @@
 <template>
-  <div class="feed-filter-item">
+  <div class="feed-filter-item" :class="getComponentVariant">
     <button class="feed-filter-item__toggle" @click="openModal">
       {{ label }}
       <Icon
@@ -12,7 +12,7 @@
       <div
         class="feed-filter-item__modal-inner flex flex-col justify-between p-6 space-y-6"
       >
-        <div class="feed-filter-item__content overflow-y-auto">
+        <div class="feed-filter-item__content">
           <slot />
         </div>
         <div class="feed-filter-item__actions flex space-x-4 justify-end">
@@ -35,17 +35,24 @@
 </template>
 
 <script>
+import { variantPropDefinition, getVariantString } from '~/plugins/component-utils'
 export default {
   props: {
     label: {
       type: String,
       default: 'Filter'
-    }
+    },
+    variant: variantPropDefinition
   },
   data () {
     return {
       focused: false,
       isOpen: false
+    }
+  },
+  computed: {
+    getComponentVariant () {
+      return getVariantString('feed-filter-item', this.variant)
     }
   },
   methods: {
@@ -97,6 +104,12 @@ export default {
     top: 0;
     width: 9999px;
     z-index: 10;
+  }
+}
+
+.feed-filter-item--no-scroll .feed-filter-item {
+  &__content {
+    @apply overflow-y-visible;
   }
 }
 </style>
