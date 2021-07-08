@@ -1,7 +1,5 @@
 import FormulateVSelectPlugin from '@cone2875/vue-formulate-select'
 
-import 'vue-select/dist/vue-select.css'
-
 export default {
   plugins: [FormulateVSelectPlugin],
   locale: 'en',
