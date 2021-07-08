@@ -21,12 +21,8 @@ export default {
 
 <style lang="scss">
 .button {
-  @apply rounded-full bg-b-light-secondary px-8 py-3 font-semibold select-none flex;
-
-  & .icon {
-    order: -9999;
-    @apply mr-2;
-  }
+  min-height: 40px;
+  @apply rounded-full bg-b-light px-8 font-semibold select-none flex items-center;
 }
 
 .button:disabled {
@@ -37,33 +33,30 @@ export default {
   @apply bg-opacity-0 border-solid border-2;
 }
 .button--simple {
-  @apply bg-opacity-0 border-0;
+  @apply bg-opacity-0;
 }
 
 .button--primary {
   @apply bg-brand border-brand text-white;
+
+  &.button--simple {
+    @apply text-brand bg-opacity-0;
+  }
 }
 .buttton--secondary {
   @apply bg-b-dark border-b-dark text-t-dark-secondary;
 }
 
 .button--sm {
-  @apply text-sm px-3 py-1;
+  min-height: 32px;
+  @apply text-sm px-4;
 }
 .button--lg {
-  @apply text-lg px-8 py-4;
+  min-height: 64px;
+  @apply text-lg px-8;
 }
 
 .button--fluid {
   @apply w-full;
-}
-
-.button--icon-right {
-  order: 0;
-  @apply flex-row-reverse;
-
-  & .icon {
-    @apply ml-2 mr-0;
-  }
 }
 </style>
