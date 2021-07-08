@@ -1,0 +1,38 @@
+/* Dropdown Menu */
+
+$border-width: $vs-border-width;
+$border-style: solid;
+$border-color: $vs-border-color;
+$border-radius: $vs-border-radius;
+$box-shadow: $vs-dropdown-box-shadow;
+
+$bg-color: $vs-dropdown-bg;
+$z-index: $vs-dropdown-z-index;
+$min-width: $vs-dropdown-min-width;
+$max-height: $vs-dropdown-max-height;
+
+.vs__dropdown-menu {
+  background: $bg-color;
+  border: $border-width $border-style $border-color;
+  border-radius: 0 0 $border-radius $border-radius;
+  border-top-style: none;
+  box-shadow: $box-shadow;
+  box-sizing: border-box;
+  display: block;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  max-height: $max-height;
+  min-width: $min-width;
+  overflow-y: auto;
+  padding: 5px 0;
+  position: absolute;
+  text-align: left;
+  top: calc(100% - #{$border-width}); // -{#$border-width} here ensures the left and right borders of the dropdown appear flush with the toggle.
+  width: 100%;
+  z-index: $z-index;
+}
+
+.vs__no-options {
+  text-align: center;
+}
