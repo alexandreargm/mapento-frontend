@@ -6,6 +6,8 @@ export const variantPropDefinition = {
 }
 
 export const getVariantString = function (name, variant) {
+  if (!variant) { return '' }
+
   const addComponentPrefix = modifier => `${name}--${modifier}`
 
   if (typeof variant === 'string') {
