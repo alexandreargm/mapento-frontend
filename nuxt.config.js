@@ -19,7 +19,8 @@ export default {
   css: [
     '~assets/css/tailwind',
     '~assets/css/typography',
-    '~assets/css/vue-formulate'
+    '~assets/css/vendor/vue-formulate',
+    '~assets/css/vendor/vue-select/main'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
