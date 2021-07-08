@@ -58,6 +58,9 @@ module.exports = {
       '9xl': '6rem' // 96px
     },
     extend: {
+      outline: {
+        brand: '2px dotted #3B7AF7'
+      },
       minWidth: {
         none: 'none',
         '4xs': '8rem',

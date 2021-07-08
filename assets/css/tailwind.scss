@@ -68,6 +68,11 @@
   ::placeholder {
     @apply text-t-dark-secondary #{!important};
   }
+  
+  :focus, 
+  button:focus {
+    @apply outline-brand;
+  }
 }
 
 @layer components {
