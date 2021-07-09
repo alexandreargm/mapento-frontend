@@ -27,7 +27,8 @@ export default {
   plugins: [
     { src: '~/plugins/feed-utils.js', mode: 'client', ssr: 'false' },
     { src: '~/plugins/array-sort-by.js', mode: 'client', ssr: 'false' },
-    { src: '~/plugins/luxon.js', mode: 'client', ssr: 'false' }
+    { src: '~/plugins/luxon.js', mode: 'client', ssr: 'false' },
+    { src: '~/plugins/what-input.js', mode: 'client', ssr: 'false' }
   ],
 
   router: {

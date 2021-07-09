@@ -28,7 +28,9 @@
       @apply w-3 h-3 #{!important};
     }
   }
+  /* --- */
   
+
   /* Use full page height */
   html,
   body,
@@ -45,6 +47,7 @@
     flex: 1;
     width: 100vw; /* Needed for horizontal scroll fix */
   }
+  /* --- */
 
   body {
     @apply text-t-light;
@@ -69,10 +72,17 @@
     @apply text-t-dark-secondary #{!important};
   }
   
+
+  /* Handle outline for accesibility */
   :focus, 
   button:focus {
+    outline: none;
+  }
+
+  [data-whatintent='keyboard'] *:focus {
     @apply outline-brand;
   }
+  /* --- */
 }
 
 @layer components {
