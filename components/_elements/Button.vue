@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
 .button {
   min-height: 40px;
-  @apply rounded-full bg-b-light px-8 font-semibold select-none flex items-center;
+  @apply rounded-full bg-b-light px-8 font-semibold select-none flex items-center whitespace-no-wrap;
 }
 
 .button:disabled {
