@@ -2,10 +2,6 @@ import { DateTime, Settings } from 'luxon'
 
 Settings.defaultLocale = 'en'
 
-// export default ({ app }, inject) => {
-//   inject('DateTime', DateTime)
-// }
-
 function _parseFromDatabase (datetime) {
   return DateTime.fromSQL(datetime)
 }
