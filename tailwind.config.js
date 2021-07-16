@@ -7,9 +7,9 @@ module.exports = {
   purge: [],
   theme: {
     fontFamily: {
-      sans: ['Montserrat', 'Verdana', 'Roboto', 'system-ui']
-      // 'serif': ['ui-serif', 'Georgia'],
-      // 'mono': ['ui-monospace', 'SFMono-Regular'],
+      sans: ['Montserrat', 'Verdana', 'Roboto', 'system-ui'],
+      serif: ['ui-serif', 'Georgia'],
+      mono: ['ui-monospace', 'SFMono-Regular']
     },
     screens: {
       '2xs': '23.4375rem', // 375px
