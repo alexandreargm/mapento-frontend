@@ -30,13 +30,14 @@ export default {
 
 <style lang="scss">
   $icon-sizes: (
-      xs: 16px, sm: 18px, md: 20px, lg: 28px, xl: 32px, 2xl: 36px,
+      xs: 16px, sm: 18px, base: 20px, md: 24px, lg: 28px, xl: 32px, 2xl: 36px,
       3xl: 40px, 4xl: 48px
     );
 
   .icon {
-    height: 24px;
-    width: 24px;
+    flex-shrink: 0;
+    height: 20px;
+    width: 20px;
   }
 
   @each $variantName, $size in $icon-sizes {
